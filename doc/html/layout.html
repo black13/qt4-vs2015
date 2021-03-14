@@ -325,7 +325,7 @@
 <p>Call <a href="qwidget.html#updateGeometry">QWidget::updateGeometry</a>() whenever the size hint, minimum size hint or size policy changes. This will cause a layout recalculation. Multiple consecutive calls to <a href="qwidget.html#updateGeometry">QWidget::updateGeometry</a>() will only cause one layout recalculation.</p>
 <p>If the preferred height of your widget depends on its actual width (e.g&#x2e;, a label with automatic word-breaking), set the <a href="qsizepolicy.html#hasHeightForWidth">height-for-width</a> flag in the widget's <a href="qwidget.html#sizePolicy-prop">size policy</a> and reimplement <a href="qwidget.html#heightForWidth">QWidget::heightForWidth</a>().</p>
 <p>Even if you implement <a href="qwidget.html#heightForWidth">QWidget::heightForWidth</a>(), it is still a good idea to provide a reasonable sizeHint().</p>
-<p>For further guidance when implementing these functions, see the <i>Qt Quarterly</i> article <a href="http://doc.qt.nokia.com/qq/qq04-height-for-width.html">Trading Height for Width</a>.</p>
+<p>For further guidance when implementing these functions, see the <i>Qt Quarterly</i> article <a href="http://doc.qt.digia.com/qq/qq04-height-for-width.html">Trading Height for Width</a>.</p>
 <a name="layout-issues"></a>
 <h2>Layout Issues</h2>
 <p>The use of rich text in a label widget can introduce some problems to the layout of its parent widget. Problems occur due to the way rich text is handled by Qt's layout managers when the label is word wrapped.</p>
@@ -482,8 +482,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -495,7 +495,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

@@ -191,7 +191,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3httprequestheader.html#Q3HttpRequestHeader-3">Q3HttpRequestHeader</a></b> ( const Q3HttpRequestHeader &amp; <i>header</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3httprequestheader.html#Q3HttpRequestHeader-4">Q3HttpRequestHeader</a></b> ( const QString &amp; <i>str</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="q3httprequestheader.html#method">method</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="q3httprequestheader.html#pathx">path</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="q3httprequestheader.html#path">path</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="q3httprequestheader.html#setRequest">setRequest</a></b> ( const QString &amp; <i>method</i>, const QString &amp; <i>path</i>, int <i>majorVer</i> = 1, int <i>minorVer</i> = 1 )</td></tr>
 </table>
 <a name="reimplemented-public-functions"></a>
@@ -211,7 +211,7 @@
 <p>The Q3HttpRequestHeader class contains request header information for HTTP.</p>
 <p>This class is used in the <a href="q3http.html">Q3Http</a> class to report the header information if the client requests something from the server.</p>
 <p>HTTP requests have a method which describes the request's action. The most common requests are &quot;GET&quot; and &quot;POST&quot;. In addition to the request method the header also includes a request-URI to specify the location for the method to use.</p>
-<p>The method, request-URI and protocol-version can be set using a constructor or later using <a href="q3httprequestheader.html#setRequest">setRequest</a>(). The values can be obtained using <a href="q3httprequestheader.html#method">method</a>(), <a href="q3httprequestheader.html#pathx">path</a>(), <a href="q3httprequestheader.html#majorVersion">majorVersion</a>() and <a href="q3httprequestheader.html#minorVersion">minorVersion</a>().</p>
+<p>The method, request-URI and protocol-version can be set using a constructor or later using <a href="q3httprequestheader.html#setRequest">setRequest</a>(). The values can be obtained using <a href="q3httprequestheader.html#method">method</a>(), <a href="q3httprequestheader.html#path">path</a>(), <a href="q3httprequestheader.html#majorVersion">majorVersion</a>() and <a href="q3httprequestheader.html#minorVersion">minorVersion</a>().</p>
 <p>This class is a <a href="q3httpheader.html">Q3HttpHeader</a> subclass so that class's functions, e.g&#x2e; <a href="q3httpheader.html#setValue">setValue()</a>, <a href="q3httpheader.html#value">value()</a>, etc. are also available.</p>
 </div>
 <p><b>See also </b><a href="q3httpresponseheader.html">Q3HttpResponseHeader</a> and <a href="q3http.html">Q3Http</a>.</p>
@@ -238,28 +238,28 @@
 <h3 class="fn"><a name="majorVersion"></a><span class="type">int</span> Q3HttpRequestHeader::<span class="name">majorVersion</span> () const<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="q3httpheader.html#majorVersion">Q3HttpHeader::majorVersion</a>().</p>
 <p>Returns the major protocol-version of the HTTP request header.</p>
-<p><b>See also </b><a href="q3httprequestheader.html#minorVersion">minorVersion</a>(), <a href="q3httprequestheader.html#method">method</a>(), <a href="q3httprequestheader.html#pathx">path</a>(), and <a href="q3httprequestheader.html#setRequest">setRequest</a>().</p>
+<p><b>See also </b><a href="q3httprequestheader.html#minorVersion">minorVersion</a>(), <a href="q3httprequestheader.html#method">method</a>(), <a href="q3httprequestheader.html#path">path</a>(), and <a href="q3httprequestheader.html#setRequest">setRequest</a>().</p>
 <!-- @@@majorVersion -->
 <!-- $$$method[overload1]$$$method -->
 <h3 class="fn"><a name="method"></a><span class="type"><a href="qstring.html">QString</a></span> Q3HttpRequestHeader::<span class="name">method</span> () const</h3>
 <p>Returns the method of the HTTP request header.</p>
-<p><b>See also </b><a href="q3httprequestheader.html#pathx">path</a>(), <a href="q3httprequestheader.html#majorVersion">majorVersion</a>(), <a href="q3httprequestheader.html#minorVersion">minorVersion</a>(), and <a href="q3httprequestheader.html#setRequest">setRequest</a>().</p>
+<p><b>See also </b><a href="q3httprequestheader.html#path">path</a>(), <a href="q3httprequestheader.html#majorVersion">majorVersion</a>(), <a href="q3httprequestheader.html#minorVersion">minorVersion</a>(), and <a href="q3httprequestheader.html#setRequest">setRequest</a>().</p>
 <!-- @@@method -->
 <!-- $$$minorVersion[overload1]$$$minorVersion -->
 <h3 class="fn"><a name="minorVersion"></a><span class="type">int</span> Q3HttpRequestHeader::<span class="name">minorVersion</span> () const<tt> [virtual]</tt></h3>
 <p>Reimplemented from <a href="q3httpheader.html#minorVersion">Q3HttpHeader::minorVersion</a>().</p>
 <p>Returns the minor protocol-version of the HTTP request header.</p>
-<p><b>See also </b><a href="q3httprequestheader.html#majorVersion">majorVersion</a>(), <a href="q3httprequestheader.html#method">method</a>(), <a href="q3httprequestheader.html#pathx">path</a>(), and <a href="q3httprequestheader.html#setRequest">setRequest</a>().</p>
+<p><b>See also </b><a href="q3httprequestheader.html#majorVersion">majorVersion</a>(), <a href="q3httprequestheader.html#method">method</a>(), <a href="q3httprequestheader.html#path">path</a>(), and <a href="q3httprequestheader.html#setRequest">setRequest</a>().</p>
 <!-- @@@minorVersion -->
 <!-- $$$path[overload1]$$$path -->
-<h3 class="fn"><a name="pathx"></a><span class="type"><a href="qstring.html">QString</a></span> Q3HttpRequestHeader::<span class="name">path</span> () const</h3>
+<h3 class="fn"><a name="path"></a><span class="type"><a href="qstring.html">QString</a></span> Q3HttpRequestHeader::<span class="name">path</span> () const</h3>
 <p>Returns the request-URI of the HTTP request header.</p>
 <p><b>See also </b><a href="q3httprequestheader.html#method">method</a>(), <a href="q3httprequestheader.html#majorVersion">majorVersion</a>(), <a href="q3httprequestheader.html#minorVersion">minorVersion</a>(), and <a href="q3httprequestheader.html#setRequest">setRequest</a>().</p>
 <!-- @@@path -->
 <!-- $$$setRequest[overload1]$$$setRequestconstQString&constQString&intint -->
 <h3 class="fn"><a name="setRequest"></a><span class="type">void</span> Q3HttpRequestHeader::<span class="name">setRequest</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>method</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>path</i>, <span class="type">int</span> <i>majorVer</i> = 1, <span class="type">int</span> <i>minorVer</i> = 1 )</h3>
 <p>This function sets the request method to <i>method</i>, the request-URI to <i>path</i> and the protocol-version to <i>majorVer</i> and <i>minorVer</i>.</p>
-<p><b>See also </b><a href="q3httprequestheader.html#method">method</a>(), <a href="q3httprequestheader.html#pathx">path</a>(), <a href="q3httprequestheader.html#majorVersion">majorVersion</a>(), and <a href="q3httprequestheader.html#minorVersion">minorVersion</a>().</p>
+<p><b>See also </b><a href="q3httprequestheader.html#method">method</a>(), <a href="q3httprequestheader.html#path">path</a>(), <a href="q3httprequestheader.html#majorVersion">majorVersion</a>(), and <a href="q3httprequestheader.html#minorVersion">minorVersion</a>().</p>
 <!-- @@@setRequest -->
 <!-- $$$toString[overload1]$$$toString -->
 <h3 class="fn"><a name="toString"></a><span class="type"><a href="qstring.html">QString</a></span> Q3HttpRequestHeader::<span class="name">toString</span> () const<tt> [virtual]</tt></h3>
@@ -275,8 +275,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -288,7 +288,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

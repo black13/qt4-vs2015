@@ -219,7 +219,7 @@
 <h2>Static Public Members</h2>
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> uchar * </td><td class="memItemRight bottomAlign"><b><a href="qdirectpainter.html#frameBuffer">frameBuffer</a></b> ()</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qdirectpainter.html#linestepx">linestep</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qdirectpainter.html#linestep">linestep</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qdirectpainter.html#lock">lock</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qdirectpainter.html#screenDepth">screenDepth</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qdirectpainter.html#screenHeight">screenHeight</a></b> ()</td></tr>
@@ -255,7 +255,7 @@
 <h3>Rendering</h3>
 <p>To draw on a given region, the application must first get hold of a pointer to the framebuffer. In most cases, this pointer can be retrieved using the <a href="qdirectpainter.html#frameBuffer">QDirectPainter::frameBuffer</a>() function. But note that if the current screen has subscreens, you must query the screen driver instead to identify the correct subscreen. A pointer to the current screen driver can always be retrieved using the static <a href="qscreen.html#instance">QScreen::instance</a>() function. Then use <a href="qscreen.html">QScreen</a>'s <a href="qscreen.html#subScreenIndexAt">subScreenIndexAt()</a> and <a href="qscreen.html#subScreens">subScreens()</a> functions to access the correct subscreen, and the subscreen's <a href="qscreen.html#base">base()</a> function to retrieve a pointer to the framebuffer.</p>
 <p>Depending on the hardware, it might be necessary to lock the framebuffer for exclusive use while writing to it. This is possible using the <a href="qdirectpainter.html#lock">lock</a>() and <a href="qdirectpainter.html#unlock">unlock</a>() functions. Note that calling <a href="qdirectpainter.html#lock">lock</a>() will prevent all other applications from working until <a href="qdirectpainter.html#unlock">unlock</a>() is called.</p>
-<p>In addition, QDirectPainter provides several functions returning information about the framebuffer: the <a href="qdirectpainter.html#linestepx">linestep</a>() function returns the length (in bytes) of each scanline of the framebuffer while the <a href="qdirectpainter.html#screenDepth">screenDepth</a>(), <a href="qdirectpainter.html#screenWidth">screenWidth</a>() and <a href="qdirectpainter.html#screenHeight">screenHeight</a>() function return the screen metrics.</p>
+<p>In addition, QDirectPainter provides several functions returning information about the framebuffer: the <a href="qdirectpainter.html#linestep">linestep</a>() function returns the length (in bytes) of each scanline of the framebuffer while the <a href="qdirectpainter.html#screenDepth">screenDepth</a>(), <a href="qdirectpainter.html#screenWidth">screenWidth</a>() and <a href="qdirectpainter.html#screenHeight">screenHeight</a>() function return the screen metrics.</p>
 </div>
 <p><b>See also </b><a href="qscreen.html">QScreen</a>, <a href="qwsembedwidget.html">QWSEmbedWidget</a>, and <a href="qt-embedded-architecture.html">Qt for Embedded Linux Architecture</a>.</p>
 <!-- @@@QDirectPainter -->
@@ -311,7 +311,7 @@
 <p>Returns a pointer to the beginning of the display memory.</p>
 <p>Note that it is the application's responsibility to limit itself to modifying only the reserved region.</p>
 <p>Do not use this pointer if the current screen has subscreens, query the screen driver instead: A pointer to the current screen driver can always be retrieved using the static <a href="qscreen.html#instance">QScreen::instance</a>() function. Then use <a href="qscreen.html">QScreen</a>'s <a href="qscreen.html#subScreenIndexAt">subScreenIndexAt()</a> and <a href="qscreen.html#subScreens">subScreens()</a> functions to access the correct subscreen, and the subscreen's <a href="qscreen.html#base">base()</a> function to retrieve a pointer to the framebuffer.</p>
-<p><b>See also </b><a href="qdirectpainter.html#requestedRegion">requestedRegion</a>(), <a href="qdirectpainter.html#allocatedRegion">allocatedRegion</a>(), and <a href="qdirectpainter.html#linestepx">linestep</a>().</p>
+<p><b>See also </b><a href="qdirectpainter.html#requestedRegion">requestedRegion</a>(), <a href="qdirectpainter.html#allocatedRegion">allocatedRegion</a>(), and <a href="qdirectpainter.html#linestep">linestep</a>().</p>
 <!-- @@@frameBuffer -->
 <!-- $$$geometry[overload1]$$$geometry -->
 <h3 class="fn"><a name="geometry"></a><span class="type"><a href="qrect.html">QRect</a></span> QDirectPainter::<span class="name">geometry</span> () const</h3>
@@ -320,7 +320,7 @@
 <p><b>See also </b><a href="qdirectpainter.html#setGeometry">setGeometry</a>() and <a href="qdirectpainter.html#requestedRegion">requestedRegion</a>().</p>
 <!-- @@@geometry -->
 <!-- $$$linestep[overload1]$$$linestep -->
-<h3 class="fn"><a name="linestepx"></a><span class="type">int</span> QDirectPainter::<span class="name">linestep</span> ()<tt> [static]</tt></h3>
+<h3 class="fn"><a name="linestep"></a><span class="type">int</span> QDirectPainter::<span class="name">linestep</span> ()<tt> [static]</tt></h3>
 <p>Returns the length (in bytes) of each scanline of the framebuffer.</p>
 <p><b>See also </b><a href="qdirectpainter.html#frameBuffer">frameBuffer</a>().</p>
 <!-- @@@linestep -->
@@ -417,8 +417,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -430,7 +430,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

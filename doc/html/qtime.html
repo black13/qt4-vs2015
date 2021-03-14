@@ -224,8 +224,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtime.html#operator-lt-lt-43">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QTime &amp; <i>time</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtime.html#operator-gt-gt-21">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QTime &amp; <i>time</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtime.html#operator-lt-lt-3">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QTime &amp; <i>time</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtime.html#operator-gt-gt-2">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QTime &amp; <i>time</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QTime-description -->
@@ -430,7 +430,7 @@
 <h3 class="fn"><a name="toString-2"></a><span class="type"><a href="qstring.html">QString</a></span> QTime::<span class="name">toString</span> ( <span class="type"><a href="qt.html#DateFormat-enum">Qt::DateFormat</a></span> <i>format</i> = Qt::TextDate ) const</h3>
 <p>This is an overloaded function.</p>
 <p>Returns the time as a string. Milliseconds are not included. The <i>format</i> parameter determines the format of the string.</p>
-<p>If <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::TextDate</a>, the string format is HH:MM:SS; e.g&#x2e; 1 second before midnight would be &quot;23:59:59&quot;.</p>
+<p>If <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::TextDate</a>, the string format is HH:mm:ss; e.g&#x2e; 1 second before midnight would be &quot;23:59:59&quot;.</p>
 <p>If <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::ISODate</a>, the string format corresponds to the ISO 8601 extended specification for representations of dates, which is also HH:mm:ss. (However, contrary to ISO 8601, dates before 15 October 1582 are handled as Julian dates, not Gregorian dates. See <a href="qdate.html#qdate-g-and-j">Use of Gregorian and Julian Calendars</a>. This might change in a future version of Qt.)</p>
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::SystemLocaleShortDate</a> or <a href="qt.html#DateFormat-enum">Qt::SystemLocaleLongDate</a>, the string format depends on the locale settings of the system. Identical to calling <a href="qlocale.html#system">QLocale::system</a>().toString(time, <a href="qlocale.html#FormatType-enum">QLocale::ShortFormat</a>) or <a href="qlocale.html#system">QLocale::system</a>().toString(time, <a href="qlocale.html#FormatType-enum">QLocale::LongFormat</a>).</p>
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::DefaultLocaleShortDate</a> or <a href="qt.html#DateFormat-enum">Qt::DefaultLocaleLongDate</a>, the string format depends on the default application locale. This is the locale set with <a href="qlocale.html#setDefault">QLocale::setDefault</a>(), or the system locale if no default locale has been set. Identical to calling QLocale().toString(time, <a href="qlocale.html#FormatType-enum">QLocale::ShortFormat</a>) or QLocale().toString(time, <a href="qlocale.html#FormatType-enum">QLocale::LongFormat</a>).</p>
@@ -464,12 +464,12 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator<<$$$operator<<QDataStream&constQTime& -->
-<h3 class="fn"><a name="operator-lt-lt-43"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QTime</span> &amp; <i>time</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-3"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QTime</span> &amp; <i>time</i> )</h3>
 <p>Writes <i>time</i> to stream <i>out</i>.</p>
 <p><b>See also </b><a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QTime& -->
-<h3 class="fn"><a name="operator-gt-gt-21"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QTime</span> &amp; <i>time</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-2"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QTime</span> &amp; <i>time</i> )</h3>
 <p>Reads a time from stream <i>in</i> into the given <i>time</i>.</p>
 <p><b>See also </b><a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator>> -->
@@ -483,8 +483,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -496,7 +496,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

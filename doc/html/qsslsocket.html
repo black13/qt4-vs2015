@@ -562,7 +562,7 @@
 <h3 class="fn"><a name="ignoreSslErrors-2"></a><span class="type">void</span> QSslSocket::<span class="name">ignoreSslErrors</span> ( const <span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type"><a href="qsslerror.html">QSslError</a></span>&gt; &amp; <i>errors</i> )</h3>
 <p>This is an overloaded function.</p>
 <p>This method tells <a href="qsslsocket.html">QSslSocket</a> to ignore only the errors given in <i>errors</i>.</p>
-<p>Note that you can set the expected certificate in the SSL error: If, for instance, you want to connect to a server that uses a self-signed certificate, consider the following snippet:</p>
+<p><b>Note:</b> Because most SSL errors are associated with a certificate, for most of them you must set the expected certificate this SSL error is related to. If, for instance, you want to connect to a server that uses a self-signed certificate, consider the following snippet:</p>
 <pre class="cpp"> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qsslcertificate.html">QSslCertificate</a></span><span class="operator">&gt;</span> cert <span class="operator">=</span> <span class="type"><a href="qsslcertificate.html">QSslCertificate</a></span><span class="operator">::</span>fromPath(QLatin1String(<span class="string">&quot;server-certificate.pem&quot;</span>));
  <span class="type"><a href="qsslerror.html">QSslError</a></span> <a href="qabstractsocket.html#error">error</a>(<span class="type"><a href="qsslerror.html">QSslError</a></span><span class="operator">::</span>SelfSignedCertificate<span class="operator">,</span> cert<span class="operator">.</span>at(<span class="number">0</span>));
  <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qsslerror.html">QSslError</a></span><span class="operator">&gt;</span> expectedSslErrors;
@@ -866,8 +866,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -879,7 +879,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

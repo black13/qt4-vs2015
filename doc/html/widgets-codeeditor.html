@@ -346,7 +346,7 @@
 <h2>Suggestions for Extending the Code Editor</h2>
 <p>No self-respecting code editor is without a syntax highligther; the <a href="richtext-syntaxhighlighter.html">Syntax Highlighter Example</a> shows how to create one.</p>
 <p>In addition to line numbers, you can add more to the extra area, for instance, break points.</p>
-<p><a href="qsyntaxhighlighter.html">QSyntaxHighlighter</a> gives the possibility to add user data to each text block with <a href="qsyntaxhighlighter.html#setCurrentBlockUserData">setCurrentBlockUserData()</a>. This can be used to implement parenthesis matching. In the <tt>highlightCurrentLine()</tt>, the data of the currentBlock() can be fetched with <a href="qtextblock.html#userData">QTextBlock::userData</a>(). Matching parentheses can be highlighted with an extra selection. The &quot;Matching Parentheses with <a href="qsyntaxhighlighter.html">QSyntaxHighlighter</a>&quot; article in Qt Quarterly 31 implements this. You find it here: <a href="http://doc.qt.nokia.com/qq/">http://doc.qt.nokia.com/qq/</a>.</p>
+<p><a href="qsyntaxhighlighter.html">QSyntaxHighlighter</a> gives the possibility to add user data to each text block with <a href="qsyntaxhighlighter.html#setCurrentBlockUserData">setCurrentBlockUserData()</a>. This can be used to implement parenthesis matching. In the <tt>highlightCurrentLine()</tt>, the data of the currentBlock() can be fetched with <a href="qtextblock.html#userData">QTextBlock::userData</a>(). Matching parentheses can be highlighted with an extra selection. The &quot;Matching Parentheses with <a href="qsyntaxhighlighter.html">QSyntaxHighlighter</a>&quot; article in Qt Quarterly 31 implements this. You find it here: <a href="http://doc.qt.digia.com/qq/">http://doc.qt.digia.com/qq/</a>.</p>
 <p>The line number area is now painted every time the cursor blinks (because we connect <a href="qplaintextedit.html#updateRequest">updateRequest()</a> to <tt>updateLineNumberArea()</tt>). We can avoid this by introducing a new member variable to CodeEditor that keeps track of when the update request comes from a cursor blink (in which case we do not repaint). The code below requires the <tt>m_countCache</tt> variable, which is a <a href="qpair.html">QPair</a>&lt;int, int&gt; initialized with <tt>-1</tt> for both <a href="qpair.html#first-var">first</a> and <a href="qpair.html#second-var">second</a>.</p>
 <pre class="cpp"> <span class="type">void</span> CodeEditor<span class="operator">::</span>updateLineNumberArea(<span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>rect<span class="operator">,</span> <span class="type">int</span> dy)
  {
@@ -373,8 +373,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -386,7 +386,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

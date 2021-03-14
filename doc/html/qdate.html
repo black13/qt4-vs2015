@@ -248,8 +248,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qdate.html#operator-lt-lt-42">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QDate &amp; <i>date</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qdate.html#operator-gt-gt-20">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QDate &amp; <i>date</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qdate.html#operator-lt-lt">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QDate &amp; <i>date</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qdate.html#operator-gt-gt">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QDate &amp; <i>date</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QDate-description -->
@@ -616,9 +616,7 @@
 <p>Returns 0 if the date is invalid.</p>
 <p>In accordance with ISO 8601, weeks start on Monday and the first Thursday of a year is always in week 1 of that year. Most years have 52 weeks, but some have 53.</p>
 <p>*<i>yearNumber</i> is not always the same as <a href="qdate.html#year">year</a>(). For example, 1 January 2000 has week number 52 in the year 1999, and 31 December 2002 has week number 1 in the year 2003.</p>
-<div class="LegaleseLeft"><p>Copyright (c) 1989 The Regents of the University of California. All rights reserved.</p>
-<p>Redistribution and use in source and binary forms are permitted provided that the above copyright notice and this paragraph are duplicated in all such forms and that any documentation, advertising materials, and other materials related to such distribution and use acknowledge that the software was developed by the University of California, Berkeley. The name of the University may not be used to endorse or promote products derived from this software without specific prior written permission. THIS SOFTWARE IS PROVIDED &quot;AS IS&quot; AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</p>
-</div><p><b>See also </b><a href="qdate.html#isValid">isValid</a>().</p>
+<p><b>See also </b><a href="qdate.html#isValid">isValid</a>().</p>
 <!-- @@@weekNumber -->
 <!-- $$$year[overload1]$$$year -->
 <h3 class="fn"><a name="year"></a><span class="type">int</span> QDate::<span class="name">year</span> () const</h3>
@@ -652,13 +650,13 @@
 </div>
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
-<!-- $$$operator<<$$$operator<<QDataStream&constQDate& -->
-<h3 class="fn"><a name="operator-lt-lt-42"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QDate</span> &amp; <i>date</i> )</h3>
+<!-- $$$operator<<[overload1]$$$operator<<QDataStream&constQDate& -->
+<h3 class="fn"><a name="operator-lt-lt"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QDate</span> &amp; <i>date</i> )</h3>
 <p>Writes the <i>date</i> to stream <i>out</i>.</p>
 <p><b>See also </b><a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator<< -->
-<!-- $$$operator>>$$$operator>>QDataStream&QDate& -->
-<h3 class="fn"><a name="operator-gt-gt-20"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QDate</span> &amp; <i>date</i> )</h3>
+<!-- $$$operator>>[overload1]$$$operator>>QDataStream&QDate& -->
+<h3 class="fn"><a name="operator-gt-gt"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QDate</span> &amp; <i>date</i> )</h3>
 <p>Reads a date from stream <i>in</i> into the <i>date</i>.</p>
 <p><b>See also </b><a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator>> -->
@@ -672,8 +670,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -685,7 +683,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

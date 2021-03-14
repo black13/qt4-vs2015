@@ -240,7 +240,7 @@
 <div class="descr">
 <h2>Detailed Description</h2>
 <p>The QSocketNotifier class provides support for monitoring activity on a file descriptor.</p>
-<p>The QSocketNotifier makes it possible to integrate Qt's event loop with other event loops based on file descriptors. For example, the <a href="http://qt.digia.com/products/add-on-products/catalog/4/Utilities/qtcorba/">CORBA Framework</a> uses it to process CORBA events. File descriptor action is detected in Qt's main event loop (<a href="qcoreapplication.html#exec">QCoreApplication::exec</a>()).</p>
+<p>The QSocketNotifier makes it possible to integrate Qt's event loop with other event loops based on file descriptors. For example, the <a href="http://www.qt.io/product/">CORBA Framework</a> uses it to process CORBA events. File descriptor action is detected in Qt's main event loop (<a href="qcoreapplication.html#exec">QCoreApplication::exec</a>()).</p>
 <a name="write-notifiers"></a><p>Once you have opened a device using a low-level (usually platform-specific) API, you can create a socket notifier to monitor the file descriptor. The socket notifier is enabled by default, i.e&#x2e; it emits the <a href="qsocketnotifier.html#activated">activated</a>() signal whenever a socket event corresponding to its type occurs. Connect the <a href="qsocketnotifier.html#activated">activated</a>() signal to the slot you want to be called when an event corresponding to your socket notifier's type occurs.</p>
 <p>There are three types of socket notifiers: read, write, and exception. The type is described by the <a href="qsocketnotifier.html#Type-enum">Type</a> enum, and must be specified when constructing the socket notifier. After construction it can be determined using the <a href="qsocketnotifier.html#type">type</a>() function. Note that if you need to monitor both reads and writes for the same file descriptor, you must create two socket notifiers. Note also that it is not possible to install two socket notifiers of the same type (<a href="qsocketnotifier.html#Type-enum">Read</a>, <a href="qsocketnotifier.html#Type-enum">Write</a>, <a href="qsocketnotifier.html#Type-enum">Exception</a>) on the same socket.</p>
 <p>The <a href="qsocketnotifier.html#setEnabled">setEnabled</a>() function allows you to disable as well as enable the socket notifier. It is generally advisable to explicitly enable or disable the socket notifier, especially for write notifiers. A disabled notifier ignores socket events (the same effect as not creating the socket notifier). Use the <a href="qsocketnotifier.html#isEnabled">isEnabled</a>() function to determine the notifier's current status.</p>
@@ -333,8 +333,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -346,7 +346,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

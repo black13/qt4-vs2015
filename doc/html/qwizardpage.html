@@ -366,7 +366,7 @@
 <h3 class="fn"><a name="isComplete"></a><span class="type">bool</span> QWizardPage::<span class="name">isComplete</span> () const<tt> [virtual]</tt></h3>
 <p>This virtual function is called by <a href="qwizard.html">QWizard</a> to determine whether the <b>Next</b> or <b>Finish</b> button should be enabled or disabled.</p>
 <p>The default implementation returns true if all <a href="qwizard.html#mandatory-fields">mandatory fields</a> are filled; otherwise, it returns false.</p>
-<p>If you reimplement this function, make sure to emit <a href="qwizardpage.html#completeChanged">completeChanged</a>(), from the rest of your implementation, whenever the value of isComplete() changes. This ensures that <a href="qwizard.html">QWizard</a> updates the enabled or disabled state of its buttons. An example of the reimplementation is available <a href="http://qt.nokia.com/doc/qq/qq22-qwizard.html#validatebeforeitstoolate">here</a>.</p>
+<p>If you reimplement this function, make sure to emit <a href="qwizardpage.html#completeChanged">completeChanged</a>(), from the rest of your implementation, whenever the value of isComplete() changes. This ensures that <a href="qwizard.html">QWizard</a> updates the enabled or disabled state of its buttons. An example of the reimplementation is available <a href="http://doc.qt.digia.com/qq/qq22-qwizard.html#validatebeforeitstoolate">here</a>.</p>
 <p><b>See also </b><a href="qwizardpage.html#completeChanged">completeChanged</a>() and <a href="qwizardpage.html#isFinalPage">isFinalPage</a>().</p>
 <!-- @@@isComplete -->
 <!-- $$$isFinalPage[overload1]$$$isFinalPage -->
@@ -475,8 +475,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -488,7 +488,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

@@ -235,8 +235,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qlinef.html#operator-lt-lt-36">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QLineF &amp; <i>line</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qlinef.html#operator-gt-gt-17">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QLineF &amp; <i>line</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qlinef.html#operator-lt-lt-173">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QLineF &amp; <i>line</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qlinef.html#operator-gt-gt-91">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QLineF &amp; <i>line</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QLineF-description -->
@@ -249,7 +249,7 @@
 </table>
 <p>The positions of the line's start and end points can be retrieved using the <a href="qlinef.html#p1">p1</a>(), <a href="qlinef.html#x1">x1</a>(), <a href="qlinef.html#y1">y1</a>(), <a href="qlinef.html#p2">p2</a>(), <a href="qlinef.html#x2">x2</a>(), and <a href="qlinef.html#y2">y2</a>() functions. The <a href="qlinef.html#dx">dx</a>() and <a href="qlinef.html#dy">dy</a>() functions return the horizontal and vertical components of the line, respectively.</p>
 <p>The line's length can be retrieved using the <a href="qlinef.html#length">length</a>() function, and altered using the <a href="qlinef.html#setLength">setLength</a>() function. Similarly, <a href="qlinef.html#angle">angle</a>() and <a href="qlinef.html#setAngle">setAngle</a>() are respectively used for retrieving and altering the angle of the line. Use the <a href="qlinef.html#isNull">isNull</a>() function to determine whether the QLineF represents a valid line or a null line.</p>
-<p>The <a href="qlinef.html#intersect">intersect</a>() function determines the <a href="qlinef.html#IntersectType-enum">IntersectType</a> for this line and a given line, while the <a href="qlinef.html#angle">angle</a>() function returns the angle between the lines. In addition, the <a href="qlinef.html#unitVector">unitVector</a>() function returns a line that has the same starting point as this line, but with a length of only 1, while the <a href="qlinef.html#normalVector">normalVector</a>() function returns a line that is perpendicular to this line with the same starting point and length.</p>
+<p>The <a href="qlinef.html#intersect">intersect</a>() function determines the <a href="qlinef.html#IntersectType-enum">IntersectType</a> for this line and a given line, while the <a href="qlinef.html#angleTo">angleTo</a>() function returns the angle between the lines. In addition, the <a href="qlinef.html#unitVector">unitVector</a>() function returns a line that has the same starting point as this line, but with a length of only 1, while the <a href="qlinef.html#normalVector">normalVector</a>() function returns a line that is perpendicular to this line with the same starting point and length.</p>
 <p>Finally, the line can be translated a given offset using the <a href="qlinef.html#translate">translate</a>() function, and can be traversed using the <a href="qlinef.html#pointAt">pointAt</a>() function.</p>
 </div>
 <p><b>See also </b><a href="qline.html">QLine</a>, <a href="qpolygonf.html">QPolygonF</a>, and <a href="qrectf.html">QRectF</a>.</p>
@@ -460,12 +460,12 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator<<$$$operator<<QDataStream&constQLineF& -->
-<h3 class="fn"><a name="operator-lt-lt-36"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>stream</i>, const <span class="type">QLineF</span> &amp; <i>line</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-173"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>stream</i>, const <span class="type">QLineF</span> &amp; <i>line</i> )</h3>
 <p>Writes the given <i>line</i> to the given <i>stream</i> and returns a reference to the stream.</p>
 <p><b>See also </b><a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QLineF& -->
-<h3 class="fn"><a name="operator-gt-gt-17"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>stream</i>, <span class="type">QLineF</span> &amp; <i>line</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-91"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>stream</i>, <span class="type">QLineF</span> &amp; <i>line</i> )</h3>
 <p>Reads a line from the given <i>stream</i> into the given <i>line</i> and returns a reference to the stream.</p>
 <p><b>See also </b><a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
 <!-- @@@operator>> -->
@@ -479,8 +479,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -492,7 +492,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

@@ -197,6 +197,8 @@
  <span class="keyword">public</span>:
      ImageWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
      <span class="type">void</span> openDirectory(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>path);
+     <span class="type">void</span> grabGestures(<span class="keyword">const</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>GestureType<span class="operator">&gt;</span> <span class="operator">&amp;</span>gestures);
+     <span class="keyword">static</span> <span class="type">void</span> setVerbose(<span class="type">bool</span> v) { ImageWidget<span class="operator">::</span>verbose <span class="operator">=</span> v; }
 
  <span class="keyword">protected</span>:
      <span class="type">bool</span> event(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>event);
@@ -226,10 +228,6 @@
 
  {
      setMinimumSize(<span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">100</span><span class="operator">,</span><span class="number">100</span>));
-
-     grabGesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PanGesture);
-     grabGesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PinchGesture);
-     grabGesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SwipeGesture);
  }</pre>
 <p>We enable three of the standard gestures for the widget by calling <a href="qwidget.html#grabGesture">QWidget::grabGesture</a>() with the types of gesture we need. These will be recognized by the application's default gesture recognizer, and events will be delivered to our widget.</p>
 <p>Since <a href="qwidget.html">QWidget</a> does not define a specific event handler for gestures, the widget needs to reimplement the general <a href="qwidget.html#event">QWidget::event</a>() to receive gesture events.</p>
@@ -243,6 +241,8 @@
 <p>The <tt>gestureHandler()</tt> function examines the gestures supplied by the newly-delivered <a href="qgestureevent.html">QGestureEvent</a>. Since only one gesture of a given type can be used on a widget at any particular time, we can check for each gesture type using the <a href="qgestureevent.html#gesture">QGestureEvent::gesture</a>() function:</p>
 <pre class="cpp"> <span class="type">bool</span> ImageWidget<span class="operator">::</span>gestureEvent(<span class="type"><a href="qgestureevent.html">QGestureEvent</a></span> <span class="operator">*</span>event)
  {
+     <span class="keyword">if</span> (ImageWidget<span class="operator">::</span>verbose)
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;gestureEvent():&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> event<span class="operator">-</span><span class="operator">&gt;</span>gestures()<span class="operator">.</span>size();
      <span class="keyword">if</span> (<span class="type"><a href="qgesture.html">QGesture</a></span> <span class="operator">*</span>swipe <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>gesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SwipeGesture))
          swipeTriggered(<span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(swipe));
      <span class="keyword">else</span> <span class="keyword">if</span> (<span class="type"><a href="qgesture.html">QGesture</a></span> <span class="operator">*</span>pan <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>gesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PanGesture))
@@ -257,10 +257,15 @@
  {
      <span class="keyword">if</span> (gesture<span class="operator">-</span><span class="operator">&gt;</span>state() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>GestureFinished) {
          <span class="keyword">if</span> (gesture<span class="operator">-</span><span class="operator">&gt;</span>horizontalDirection() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span><span class="operator">::</span>Left
-             <span class="operator">|</span><span class="operator">|</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>verticalDirection() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span><span class="operator">::</span>Up)
+             <span class="operator">|</span><span class="operator">|</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>verticalDirection() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span><span class="operator">::</span>Up) {
+             <span class="keyword">if</span> (ImageWidget<span class="operator">::</span>verbose)
+                 <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;swipeTriggered(): swipe to previous&quot;</span>;
              goPrevImage();
-         <span class="keyword">else</span>
+         } <span class="keyword">else</span> {
+             <span class="keyword">if</span> (ImageWidget<span class="operator">::</span>verbose)
+                 <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;swipeTriggered(): swipe to next&quot;</span>;
              goNextImage();
+         }
          update();
      }
  }</pre>
@@ -277,8 +282,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -290,7 +295,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

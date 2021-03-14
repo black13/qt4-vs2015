@@ -193,7 +193,7 @@
 <p>When calling Symbian leaving functions from Qt code, we want to translate Symbian leaves to standard C++ exceptions. The following help is provided:</p>
 <ul>
 <li><a href="qtglobal.html#qt_symbian_throwIfError">qt_symbian_throwIfError</a>() takes a Symbian error code and throws an appropriate exception to represent it. This will do nothing if the error code is not in fact an error. The function is equivalent to Symbian's <tt>User::LeaveIfError</tt>.</li>
-<li><a href="qtglobal.html#q_check_ptr">q_check_ptr</a>() takes a pointer and throws a std::bad_alloc exception if it is 0, otherwise the pointer is returned. This can be used to check the success of a non-throwing allocation, eg from <tt>malloc()</tt>. The function is equivalent to Symbian's <tt>User::LeaveIfNull</tt>.</li>
+<li><a href="qtglobal.html#q_check_ptrx">q_check_ptr</a>() takes a pointer and throws a std::bad_alloc exception if it is 0, otherwise the pointer is returned. This can be used to check the success of a non-throwing allocation, eg from <tt>malloc()</tt>. The function is equivalent to Symbian's <tt>User::LeaveIfNull</tt>.</li>
 <li><a href="qtglobal.html#QT_TRAP_THROWING">QT_TRAP_THROWING</a>() takes a Symbian leaving code fragment f and runs it under a trap harness converting any resulting error into an exception.</li>
 <li><tt>TRAP</tt> and <tt>TRAPD</tt> from the Symbian libraries can be used to convert leaves to error codes.</li>
 </ul>
@@ -211,14 +211,14 @@
  <a href="qtglobal.html#qt_symbian_throwIfError">qt_symbian_throwIfError</a>(pos);
 
  <span class="comment">// we are asking for a lot of memory, HBufC::New may return NULL, so check it</span>
- HBufC <span class="operator">*</span>buffer <span class="operator">=</span> <a href="qtglobal.html#q_check_ptr">q_check_ptr</a>(HBufC<span class="operator">::</span>New(<span class="number">1000000</span>));</pre>
+ HBufC <span class="operator">*</span>buffer <span class="operator">=</span> <a href="qtglobal.html#q_check_ptrx">q_check_ptr</a>(HBufC<span class="operator">::</span>New(<span class="number">1000000</span>));</pre>
 <a name="be-careful-with-new-and-cbase"></a>
 <h3>Be careful with new and CBase</h3>
-<p>When writing Qt code, <tt>new</tt> will normally throw a <tt>std::bad_alloc</tt> if the allocation fails. However this may not happen if the object being created has its own <tt>operator new</tt>. For example, CBase and derived classes have their own <tt>operator new</tt> which returns 0 and the <tt>new(ELeave)</tt> overload for a leaving <tt>operator new</tt>, neither of which does what we want. When using 2-phase construction of CBase derived objects, use <tt>new</tt> and <a href="qtglobal.html#q_check_ptr">q_check_ptr</a>().</p>
+<p>When writing Qt code, <tt>new</tt> will normally throw a <tt>std::bad_alloc</tt> if the allocation fails. However this may not happen if the object being created has its own <tt>operator new</tt>. For example, CBase and derived classes have their own <tt>operator new</tt> which returns 0 and the <tt>new(ELeave)</tt> overload for a leaving <tt>operator new</tt>, neither of which does what we want. When using 2-phase construction of CBase derived objects, use <tt>new</tt> and <a href="qtglobal.html#q_check_ptrx">q_check_ptr</a>().</p>
 <p>For example, if you have code like</p>
 <pre class="cpp"> CFbsBitmap* fbsBitmap = new(ELeave) CFbsBitmap;</pre>
 <p>you can rewrite it as</p>
-<pre class="cpp"> CFbsBitmap<span class="operator">*</span> fbsBitmap <span class="operator">=</span> <a href="qtglobal.html#q_check_ptr">q_check_ptr</a>(<span class="keyword">new</span> CFbsBitmap);</pre>
+<pre class="cpp"> CFbsBitmap<span class="operator">*</span> fbsBitmap <span class="operator">=</span> <a href="qtglobal.html#q_check_ptrx">q_check_ptr</a>(<span class="keyword">new</span> CFbsBitmap);</pre>
 <a name="qt-called-from-symbian"></a>
 <h2>Qt called from Symbian</h2>
 <p>When Qt code is called from Symbian, we want to translate standard C++ exceptions to Symbian leaves or error codes. The following help is provided:</p>
@@ -275,8 +275,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -288,7 +288,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

@@ -189,7 +189,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qgraphicspathitem.html#QGraphicsPathItem">QGraphicsPathItem</a></b> ( QGraphicsItem * <i>parent</i> = 0 )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qgraphicspathitem.html#QGraphicsPathItem-2">QGraphicsPathItem</a></b> ( const QPainterPath &amp; <i>path</i>, QGraphicsItem * <i>parent</i> = 0 )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qgraphicspathitem.html#dtor.QGraphicsPathItem">~QGraphicsPathItem</a></b> ()</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QPainterPath </td><td class="memItemRight bottomAlign"><b><a href="qgraphicspathitem.html#pathx">path</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPainterPath </td><td class="memItemRight bottomAlign"><b><a href="qgraphicspathitem.html#path">path</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicspathitem.html#setPath">setPath</a></b> ( const QPainterPath &amp; <i>path</i> )</td></tr>
 </table>
 <a name="reimplemented-public-functions"></a>
@@ -217,7 +217,7 @@
 <div class="descr">
 <h2>Detailed Description</h2>
 <p>The QGraphicsPathItem class provides a path item that you can add to a <a href="qgraphicsscene.html">QGraphicsScene</a>.</p>
-<p>To set the item's path, pass a <a href="qpainterpath.html">QPainterPath</a> to QGraphicsPathItem's constructor, or call the <a href="qgraphicspathitem.html#setPath">setPath</a>() function. The <a href="qgraphicspathitem.html#pathx">path</a>() function returns the current path.</p>
+<p>To set the item's path, pass a <a href="qpainterpath.html">QPainterPath</a> to QGraphicsPathItem's constructor, or call the <a href="qgraphicspathitem.html#setPath">setPath</a>() function. The <a href="qgraphicspathitem.html#path">path</a>() function returns the current path.</p>
 <p class="centerAlign"><img src="images/graphicsview-pathitem.png" alt="" /></p><p>QGraphicsPathItem uses the path to provide a reasonable implementation of <a href="qgraphicspathitem.html#boundingRect">boundingRect</a>(), <a href="qgraphicspathitem.html#shape">shape</a>(), and <a href="qgraphicspathitem.html#contains">contains</a>(). The <a href="qgraphicspathitem.html#paint">paint</a>() function draws the path using the item's associated pen and brush, which you can set by calling the <a href="qabstractgraphicsshapeitem.html#setPen">setPen</a>() and <a href="qabstractgraphicsshapeitem.html#setBrush">setBrush</a>() functions.</p>
 </div>
 <p><b>See also </b><a href="qgraphicsrectitem.html">QGraphicsRectItem</a>, <a href="qgraphicsellipseitem.html">QGraphicsEllipseItem</a>, <a href="qgraphicspolygonitem.html">QGraphicsPolygonItem</a>, <a href="qgraphicstextitem.html">QGraphicsTextItem</a>, <a href="qgraphicslineitem.html">QGraphicsLineItem</a>, <a href="qgraphicspixmapitem.html">QGraphicsPixmapItem</a>, and <a href="graphicsview.html">Graphics View Framework</a>.</p>
@@ -259,14 +259,14 @@
 <p>Reimplemented from <a href="qgraphicsitem.html#paint">QGraphicsItem::paint</a>().</p>
 <!-- @@@paint -->
 <!-- $$$path[overload1]$$$path -->
-<h3 class="fn"><a name="pathx"></a><span class="type"><a href="qpainterpath.html">QPainterPath</a></span> QGraphicsPathItem::<span class="name">path</span> () const</h3>
+<h3 class="fn"><a name="path"></a><span class="type"><a href="qpainterpath.html">QPainterPath</a></span> QGraphicsPathItem::<span class="name">path</span> () const</h3>
 <p>Returns the item's path as a <a href="qpainterpath.html">QPainterPath</a>. If no item has been set, an empty <a href="qpainterpath.html">QPainterPath</a> is returned.</p>
 <p><b>See also </b><a href="qgraphicspathitem.html#setPath">setPath</a>().</p>
 <!-- @@@path -->
 <!-- $$$setPath[overload1]$$$setPathconstQPainterPath& -->
 <h3 class="fn"><a name="setPath"></a><span class="type">void</span> QGraphicsPathItem::<span class="name">setPath</span> ( const <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> &amp; <i>path</i> )</h3>
 <p>Sets the item's path to be the given <i>path</i>.</p>
-<p><b>See also </b><a href="qgraphicspathitem.html#pathx">path</a>().</p>
+<p><b>See also </b><a href="qgraphicspathitem.html#path">path</a>().</p>
 <!-- @@@setPath -->
 <!-- $$$shape[overload1]$$$shape -->
 <h3 class="fn"><a name="shape"></a><span class="type"><a href="qpainterpath.html">QPainterPath</a></span> QGraphicsPathItem::<span class="name">shape</span> () const<tt> [virtual]</tt></h3>
@@ -286,8 +286,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -299,7 +299,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

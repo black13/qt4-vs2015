@@ -186,7 +186,7 @@
 <h2>Public Types</h2>
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsysinfo.html#Endian-enum">Endian</a></b> { BigEndian, LittleEndian, ByteOrder }</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsysinfo.html#MacVersion-enum">MacVersion</a></b> { MV_9, MV_10_0, MV_10_1, MV_10_2, ..., MV_MAVERICKS }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsysinfo.html#MacVersion-enum">MacVersion</a></b> { MV_9, MV_10_0, MV_10_1, MV_10_2, ..., MV_YOSEMITE }</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsysinfo.html#S60Version-enum">S60Version</a></b> { SV_S60_3_1, SV_S60_3_2, SV_S60_5_0, SV_S60_5_1, ..., SV_S60_Unknown }</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsysinfo.html#Sizes-enum">Sizes</a></b> { WordSize }</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsysinfo.html#SymbianVersion-enum">SymbianVersion</a></b> { SV_9_2, SV_9_3, SV_9_4, SV_SF_1, ..., SV_Unknown }</td></tr>
@@ -226,7 +226,7 @@
 <tr><td class="topAlign"><tt>QSysInfo::ByteOrder</tt></td><td class="topAlign"><tt>&lt;platform-dependent&gt;</tt></td><td class="topAlign">Equals BigEndian or LittleEndian, depending on the platform's byte order.</td></tr>
 </table>
 <!-- @@@Endian -->
-<!-- $$$MacVersion$$$MV_Unknown$$$MV_9$$$MV_10_0$$$MV_10_1$$$MV_10_2$$$MV_10_3$$$MV_10_4$$$MV_10_5$$$MV_10_6$$$MV_10_7$$$MV_10_8$$$MV_10_9$$$MV_CHEETAH$$$MV_PUMA$$$MV_JAGUAR$$$MV_PANTHER$$$MV_TIGER$$$MV_LEOPARD$$$MV_SNOWLEOPARD$$$MV_LION$$$MV_MOUNTAINLION$$$MV_MAVERICKS -->
+<!-- $$$MacVersion$$$MV_Unknown$$$MV_9$$$MV_10_0$$$MV_10_1$$$MV_10_2$$$MV_10_3$$$MV_10_4$$$MV_10_5$$$MV_10_6$$$MV_10_7$$$MV_10_8$$$MV_10_9$$$MV_10_10$$$MV_CHEETAH$$$MV_PUMA$$$MV_JAGUAR$$$MV_PANTHER$$$MV_TIGER$$$MV_LEOPARD$$$MV_SNOWLEOPARD$$$MV_LION$$$MV_MOUNTAINLION$$$MV_MAVERICKS$$$MV_YOSEMITE -->
 <h3 class="fn"><a name="MacVersion-enum"></a>enum QSysInfo::<span class="name">MacVersion</span></h3>
 <p>This enum provides symbolic names for the various versions of the OS X operating system. On OS X, the <a href="qsysinfo.html#MacintoshVersion-var">QSysInfo::MacintoshVersion</a> variable gives the version of the system on which the application is run.</p>
 <table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
@@ -241,6 +241,7 @@
 <tr><td class="topAlign"><tt>QSysInfo::MV_10_7</tt></td><td class="topAlign"><tt>0x0009</tt></td><td class="topAlign">OS X 10.7</td></tr>
 <tr><td class="topAlign"><tt>QSysInfo::MV_10_8</tt></td><td class="topAlign"><tt>0x000A</tt></td><td class="topAlign">OS X 10.8</td></tr>
 <tr><td class="topAlign"><tt>QSysInfo::MV_10_9</tt></td><td class="topAlign"><tt>0x000B</tt></td><td class="topAlign">OS X 10.9</td></tr>
+<tr><td class="topAlign"><tt>QSysInfo::MV_10_10</tt></td><td class="topAlign"><tt>0x000C</tt></td><td class="topAlign">OS X 10.10</td></tr>
 <tr><td class="topAlign"><tt>QSysInfo::MV_Unknown</tt></td><td class="topAlign"><tt>0x0000</tt></td><td class="topAlign">An unknown and currently unsupported platform</td></tr>
 <tr><td class="topAlign"><tt>QSysInfo::MV_CHEETAH</tt></td><td class="topAlign"><tt>MV_10_0</tt></td><td class="topAlign">Apple codename for MV_10_0</td></tr>
 <tr><td class="topAlign"><tt>QSysInfo::MV_PUMA</tt></td><td class="topAlign"><tt>MV_10_1</tt></td><td class="topAlign">Apple codename for MV_10_1</td></tr>
@@ -252,6 +253,7 @@
 <tr><td class="topAlign"><tt>QSysInfo::MV_LION</tt></td><td class="topAlign"><tt>MV_10_7</tt></td><td class="topAlign">Apple codename for MV_10_7</td></tr>
 <tr><td class="topAlign"><tt>QSysInfo::MV_MOUNTAINLION</tt></td><td class="topAlign"><tt>MV_10_8</tt></td><td class="topAlign">Apple codename for MV_10_8</td></tr>
 <tr><td class="topAlign"><tt>QSysInfo::MV_MAVERICKS</tt></td><td class="topAlign"><tt>MV_10_9</tt></td><td class="topAlign">Apple codename for MV_10_9</td></tr>
+<tr><td class="topAlign"><tt>QSysInfo::MV_YOSEMITE</tt></td><td class="topAlign"><tt>MV_10_10</tt></td><td class="topAlign">Apple codename for MV_10_10</td></tr>
 </table>
 <p><b>See also </b><a href="qsysinfo.html#WinVersion-enum">WinVersion</a> and <a href="qsysinfo.html#SymbianVersion-enum">SymbianVersion</a>.</p>
 <!-- @@@MacVersion -->
@@ -296,7 +298,7 @@
 </table>
 <p><b>See also </b><a href="qsysinfo.html#S60Version-enum">S60Version</a>, <a href="qsysinfo.html#WinVersion-enum">WinVersion</a>, and <a href="qsysinfo.html#MacVersion-enum">MacVersion</a>.</p>
 <!-- @@@SymbianVersion -->
-<!-- $$$WinVersion$$$WV_32s$$$WV_95$$$WV_98$$$WV_Me$$$WV_DOS_based$$$WV_NT$$$WV_2000$$$WV_XP$$$WV_2003$$$WV_VISTA$$$WV_WINDOWS7$$$WV_WINDOWS8$$$WV_WINDOWS8_1$$$WV_NT_based$$$WV_4_0$$$WV_5_0$$$WV_5_1$$$WV_5_2$$$WV_6_0$$$WV_6_1$$$WV_6_2$$$WV_6_3$$$WV_CE$$$WV_CENET$$$WV_CE_5$$$WV_CE_6$$$WV_CE_based -->
+<!-- $$$WinVersion$$$WV_32s$$$WV_95$$$WV_98$$$WV_Me$$$WV_DOS_based$$$WV_NT$$$WV_2000$$$WV_XP$$$WV_2003$$$WV_VISTA$$$WV_WINDOWS7$$$WV_WINDOWS8$$$WV_WINDOWS8_1$$$WV_WINDOWS10$$$WV_NT_based$$$WV_4_0$$$WV_5_0$$$WV_5_1$$$WV_5_2$$$WV_6_0$$$WV_6_1$$$WV_6_2$$$WV_6_3$$$WV_10_0$$$WV_CE$$$WV_CENET$$$WV_CE_5$$$WV_CE_6$$$WV_CE_based -->
 <h3 class="fn"><a name="WinVersion-enum"></a>enum QSysInfo::<span class="name">WinVersion</span></h3>
 <p>This enum provides symbolic names for the various versions of the Windows operating system. On Windows, the <a href="qsysinfo.html#WindowsVersion-var">QSysInfo::WindowsVersion</a> variable gives the version of the system on which the application is run.</p>
 <p>MS-DOS-based versions:</p>
@@ -316,6 +318,7 @@
 <tr><td class="topAlign"><tt>QSysInfo::WV_WINDOWS7</tt></td><td class="topAlign"><tt>0x0090</tt></td><td class="topAlign">Windows 7, Windows Server 2008 R2 (operating system version 6.1)</td></tr>
 <tr><td class="topAlign"><tt>QSysInfo::WV_WINDOWS8</tt></td><td class="topAlign"><tt>0x00a0</tt></td><td class="topAlign">Windows 8 (operating system version 6.2)</td></tr>
 <tr><td class="topAlign"><tt>QSysInfo::WV_WINDOWS8_1</tt></td><td class="topAlign"><tt>0x00b0</tt></td><td class="topAlign">Windows 8.1 (operating system version 6.3), introduced in Qt 4.8&#x2e;6</td></tr>
+<tr><td class="topAlign"><tt>QSysInfo::WV_WINDOWS10</tt></td><td class="topAlign"><tt>0x00c0</tt></td><td class="topAlign">Windows 10 (operating system version 10.0), introduced in Qt 4.8&#x2e;7</td></tr>
 </table>
 <p>Alternatively, you may use the following macros which correspond directly to the Windows operating system version number:</p>
 <table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
@@ -327,6 +330,7 @@
 <tr><td class="topAlign"><tt>QSysInfo::WV_6_1</tt></td><td class="topAlign"><tt>WV_WINDOWS7</tt></td><td class="topAlign">Operating system version 6.1, corresponds to Windows 7 and Windows Server 2008 R2</td></tr>
 <tr><td class="topAlign"><tt>QSysInfo::WV_6_2</tt></td><td class="topAlign"><tt>WV_WINDOWS8</tt></td><td class="topAlign">Operating system version 6.2, corresponds to Windows 8</td></tr>
 <tr><td class="topAlign"><tt>QSysInfo::WV_6_3</tt></td><td class="topAlign"><tt>WV_WINDOWS8_1</tt></td><td class="topAlign">Operating system version 6.3, corresponds to Windows 8.1, introduced in Qt 4.8&#x2e;6</td></tr>
+<tr><td class="topAlign"><tt>QSysInfo::WV_10_0</tt></td><td class="topAlign"><tt>WV_WINDOWS10</tt></td><td class="topAlign">Operating system version 10.0, corresponds to Windows 10, introduced in Qt 4.8&#x2e;7</td></tr>
 </table>
 <p>CE-based versions:</p>
 <table class="valuelist"><tr valign="top" class="even"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
@@ -382,8 +386,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -395,7 +399,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

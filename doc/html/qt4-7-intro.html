@@ -198,7 +198,7 @@
 <h2>Feature Improvements in QtWebKit</h2>
 <p>The <a href="qgraphicswebview.html">QGraphicsWebView</a> class has a new tiled backing store, which improves scrolling and zooming performance. You can even create animated zoom-in or zoom-out effects (see <a href="qwebsettings.html#WebAttribute-enum">QWebSettings::TiledBackingStoreEnabled</a>).</p>
 <p>On mobile platforms, it is often useful to avoid displaying separate scrollbars for iframes and framesets. If you switch on frame flattening, <a href="qtwebkit.html">QtWebKit</a> will resize frames to fit their content to avoid separate scrollbars (see <a href="qwebsettings.html#WebAttribute-enum">QWebSettings::FrameFlatteningEnabled</a>).</p>
-<p>Qt 4.7 adds support for accelerated compositing, which enhances the performance of CSS animations and transitions. Read more in <a href="http://labs.trolltech.com/blogs/2010/05/17/qtwebkit-now-accelerates-css-animations-3d-transforms/">this blog</a>.</p>
+<p>Qt 4.7 adds support for accelerated compositing, which enhances the performance of CSS animations and transitions. Read more in <a href="http://blog.qt.io/blog/2010/05/17/qtwebkit-now-accelerates-css-animations-3d-transforms/">this blog</a>.</p>
 <p>For hybrid <a href="qtwebkit.html">QtWebKit</a> and C++ projects, Qt 4.7 has added support for transporting <a href="qpixmap.html">QPixmap</a>s between Qt C++ and WebKit. We have also improved the documentation for hybrid development. Read more here: <a href="qtwebkit-bridge.html">The QtWebKit Bridge</a>.</p>
 <a name="qtwebkit-performance-benchmarks"></a>
 <h2>QtWebKit Performance Benchmarks</h2>
@@ -210,7 +210,7 @@
 <h2>Other Performance Related Improvements</h2>
 <p>In addition to the <a href="qtwebkit.html">QtWebKit</a> module, performance has been a focus area in Qt 4.7 throughout the Qt framework. Here are a couple of examples about performance related feature improvements.</p>
 <p>On Mac OS X, Qt now uses a different widget implementation (called &quot;alien widgets&quot;), which improves the responsiveness of applications that have complex user interfaces with several widgets.</p>
-<p>Qt 4.7 introduces the <a href="qstatictext.html">QStaticText</a> class, which can be used to improve text rendering performance. More info is available from <a href="http://labs.trolltech.com/blogs/2010/03/01/insanity-is-shaping-the-same-text-again-and-expecting-a-different-result/">this blog</a>.</p>
+<p>Qt 4.7 introduces the <a href="qstatictext.html">QStaticText</a> class, which can be used to improve text rendering performance. More info is available from <a href="http://blog.qt.io/blog/2010/03/01/insanity-is-shaping-the-same-text-again-and-expecting-a-different-result/">this blog</a>.</p>
 <p>The <a href="qpainter.html">QPainter</a> class has a new API for rendering pixmap fragments (QPainter::drawPixmapFragments), which can improve the rendering performance of applications that need to render <a href="qpainter.html#drawPixmapFragments">pixmap fragments</a>.</p>
 <p>Qt 4.7 has an updated version of the <a href="3rdparty.html#javascriptcore">JavaScriptCore</a> engine for the <a href="qtscript.html">QtScript</a> module, which improves JavaScript execution performance.</p>
 <a name="new-classes-functions-macros-etc"></a>
@@ -268,11 +268,70 @@
 </div>
 <a name="new-member-functions"></a>
 <h3>    New Member Functions</h3>
-<p>Class <a href="qauthenticator.html">QAuthenticator</a>:</p>
+<p>Class <a href="qstate.html">QState</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QList&lt;QAbstractTransition *&gt; </td><td class="memItemRight bottomAlign"><b><a href="qstate.html#transitions">transitions</a></b> () const</td></tr>
+</table>
+<br/><p>Class <a href="qnetworkrequest.html">QNetworkRequest</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Priority </td><td class="memItemRight bottomAlign"><b><a href="qnetworkrequest.html#priority">priority</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkrequest.html#setPriority">setPriority</a></b> ( Priority <i>priority</i> )</td></tr>
+</table>
+<br/><p>Class <a href="qwizard.html">QWizard</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#pageAdded">pageAdded</a></b> ( int <i>id</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#pageRemoved">pageRemoved</a></b> ( int <i>id</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#setSideWidget">setSideWidget</a></b> ( QWidget * <i>widget</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#sideWidget">sideWidget</a></b> () const</td></tr>
+</table>
+<br/><p>Class <a href="qdbusmessage.html">QDBusMessage</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qdbusmessage.html#autoStartService">autoStartService</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qdbusmessage.html#setAutoStartService">setAutoStartService</a></b> ( bool <i>enable</i> )</td></tr>
+</table>
+<br/><p>Class <a href="phonon-videowidget.html">VideoWidget</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="phonon-videowidget.html#snapshot">snapshot</a></b> () const</td></tr>
+</table>
+<br/><p>Class <a href="qfilesystemmodel.html">QFileSystemModel</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfilesystemmodel.html#directoryLoaded">directoryLoaded</a></b> ( const QString &amp; <i>path</i> )</td></tr>
+</table>
+<br/><p>Class <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QNetworkConfiguration </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#activeConfiguration">activeConfiguration</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QNetworkConfiguration </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#configuration">configuration</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> NetworkAccessibility </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#networkAccessible-prop">networkAccessible</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QNetworkReply * </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#sendCustomRequest">sendCustomRequest</a></b> ( const QNetworkRequest &amp; <i>request</i>, const QByteArray &amp; <i>verb</i>, QIODevice * <i>data</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#setConfiguration">setConfiguration</a></b> ( const QNetworkConfiguration &amp; <i>config</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#networkAccessible-prop">setNetworkAccessible</a></b> ( NetworkAccessibility <i>accessible</i> )</td></tr>
+</table>
+<br/><p>Class <a href="qgraphicsitem.html">QGraphicsItem</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsitem.html#updateMicroFocus">updateMicroFocus</a></b> ()</td></tr>
+</table>
+<br/><p>Class <a href="qgraphicsobject.html">QGraphicsObject</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsobject.html#updateMicroFocus">updateMicroFocus</a></b> ()</td></tr>
+</table>
+<br/><p>Class <a href="qauthenticator.html">QAuthenticator</a>:</p>
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> QVariant </td><td class="memItemRight bottomAlign"><b><a href="qauthenticator.html#option">option</a></b> ( const QString &amp; <i>opt</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QVariantHash </td><td class="memItemRight bottomAlign"><b><a href="qauthenticator.html#options">options</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qauthenticator.html#setOption">setOption</a></b> ( const QString &amp; <i>opt</i>, const QVariant &amp; <i>value</i> )</td></tr>
+</table>
+<br/><p>Class <a href="qwebframe.html">QWebFrame</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#pageChanged">pageChanged</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#scrollToAnchor">scrollToAnchor</a></b> ( const QString &amp; <i>anchor</i> )</td></tr>
+</table>
+<br/><p>Class <a href="qplaintextedit.html">QPlainTextEdit</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qplaintextedit.html#anchorAt">anchorAt</a></b> ( const QPoint &amp; <i>pos</i> ) const</td></tr>
+</table>
+<br/><p>Class <a href="qglshader.html">QGLShader</a>:</p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qglshader.html#hasOpenGLShaders">hasOpenGLShaders</a></b> ( ShaderType <i>type</i>, const QGLContext * <i>context</i> = 0 )</td></tr>
 </table>
 <br/><p>Class <a href="qglshaderprogram.html">QGLShaderProgram</a>:</p>
 <table class="alignedsummary">
@@ -291,34 +350,25 @@
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qglshaderprogram.html#setUniformValue-51">setUniformValue</a></b> ( const char * <i>name</i>, const GLfloat[2][2] <i>value</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qglshaderprogram.html#setUniformValue-52">setUniformValue</a></b> ( const char * <i>name</i>, const GLfloat[3][3] <i>value</i> )</td></tr>
 </table>
-<br/><p>Class <a href="qglshader.html">QGLShader</a>:</p>
+<br/><p>Class <a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qglshader.html#hasOpenGLShaders">hasOpenGLShaders</a></b> ( ShaderType <i>type</i>, const QGLContext * <i>context</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QList&lt;int&gt; </td><td class="memItemRight bottomAlign"><b><a href="qaudiodeviceinfo.html#supportedChannelCounts">supportedChannelCounts</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QList&lt;int&gt; </td><td class="memItemRight bottomAlign"><b><a href="qaudiodeviceinfo.html#supportedSampleRates">supportedSampleRates</a></b> () const</td></tr>
 </table>
-<br/><p>Class <a href="qwizard.html">QWizard</a>:</p>
+<br/><p>Class <a href="qiconenginev2.html">QIconEngineV2</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#pageAdded">pageAdded</a></b> ( int <i>id</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#pageRemoved">pageRemoved</a></b> ( int <i>id</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#setSideWidget">setSideWidget</a></b> ( QWidget * <i>widget</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qwizard.html#sideWidget">sideWidget</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qiconenginev2.html#iconName">iconName</a></b> ()</td></tr>
 </table>
-<br/><p>Class <a href="qstate.html">QState</a>:</p>
+<br/><p>Class <a href="qscriptengine.html">QScriptEngine</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QList&lt;QAbstractTransition *&gt; </td><td class="memItemRight bottomAlign"><b><a href="qstate.html#transitions">transitions</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QScriptValue </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#evaluate-2">evaluate</a></b> ( const QScriptProgram &amp; <i>program</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#reportAdditionalMemoryCost">reportAdditionalMemoryCost</a></b> ( int <i>size</i> )</td></tr>
 </table>
-<br/><p>Class <a href="qnetworkrequest.html">QNetworkRequest</a>:</p>
+<br/><p>Class <a href="qgraphicsscale.html">QGraphicsScale</a>:</p>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> Priority </td><td class="memItemRight bottomAlign"><b><a href="qnetworkrequest.html#priority">priority</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkrequest.html#setPriority">setPriority</a></b> ( Priority <i>priority</i> )</td></tr>
-</table>
-<br/><p>Class <a href="phonon-videowidget.html">VideoWidget</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="phonon-videowidget.html#snapshot">snapshot</a></b> () const</td></tr>
-</table>
-<br/><p>Class <a href="qwebframe.html">QWebFrame</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#pageChanged">pageChanged</a></b> ()</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#scrollToAnchor">scrollToAnchor</a></b> ( const QString &amp; <i>anchor</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#xScaleChanged">xScaleChanged</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#yScaleChanged">yScaleChanged</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#zScaleChanged">zScaleChanged</a></b> ()</td></tr>
 </table>
 <br/><p>Class <a href="qaudioformat.html">QAudioFormat</a>:</p>
 <table class="alignedsummary">
@@ -327,60 +377,10 @@
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qaudioformat.html#setChannelCount">setChannelCount</a></b> ( int <i>channels</i> )</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qaudioformat.html#setSampleRate">setSampleRate</a></b> ( int <i>samplerate</i> )</td></tr>
 </table>
-<br/><p>Class <a href="qgraphicsscale.html">QGraphicsScale</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#xScaleChanged">xScaleChanged</a></b> ()</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#yScaleChanged">yScaleChanged</a></b> ()</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#zScaleChanged">zScaleChanged</a></b> ()</td></tr>
-</table>
-<br/><p>Class <a href="qiconenginev2.html">QIconEngineV2</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qiconenginev2.html#iconName">iconName</a></b> ()</td></tr>
-</table>
-<br/><p>Class <a href="qgraphicsitem.html">QGraphicsItem</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsitem.html#updateMicroFocus">updateMicroFocus</a></b> ()</td></tr>
-</table>
-<br/><p>Class <a href="qgraphicsobject.html">QGraphicsObject</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsobject.html#updateMicroFocus">updateMicroFocus</a></b> ()</td></tr>
-</table>
-<br/><p>Class <a href="qscriptengine.html">QScriptEngine</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QScriptValue </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#evaluate-2">evaluate</a></b> ( const QScriptProgram &amp; <i>program</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#reportAdditionalMemoryCost">reportAdditionalMemoryCost</a></b> ( int <i>size</i> )</td></tr>
-</table>
-<br/><p>Class <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QNetworkConfiguration </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#activeConfiguration">activeConfiguration</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QNetworkConfiguration </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#configuration">configuration</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> NetworkAccessibility </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#networkAccessible-prop">networkAccessible</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QNetworkReply * </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#sendCustomRequest">sendCustomRequest</a></b> ( const QNetworkRequest &amp; <i>request</i>, const QByteArray &amp; <i>verb</i>, QIODevice * <i>data</i> = 0 )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#setConfiguration">setConfiguration</a></b> ( const QNetworkConfiguration &amp; <i>config</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qnetworkaccessmanager.html#networkAccessible-prop">setNetworkAccessible</a></b> ( NetworkAccessibility <i>accessible</i> )</td></tr>
-</table>
-<br/><p>Class <a href="qdbusmessage.html">QDBusMessage</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qdbusmessage.html#autoStartService">autoStartService</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qdbusmessage.html#setAutoStartService">setAutoStartService</a></b> ( bool <i>enable</i> )</td></tr>
-</table>
-<br/><p>Class <a href="qfilesystemmodel.html">QFileSystemModel</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfilesystemmodel.html#directoryLoaded">directoryLoaded</a></b> ( const QString &amp; <i>path</i> )</td></tr>
-</table>
-<br/><p>Class <a href="qplaintextedit.html">QPlainTextEdit</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qplaintextedit.html#anchorAt">anchorAt</a></b> ( const QPoint &amp; <i>pos</i> ) const</td></tr>
-</table>
-<br/><p>Class <a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a>:</p>
-<table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QList&lt;int&gt; </td><td class="memItemRight bottomAlign"><b><a href="qaudiodeviceinfo.html#supportedChannelCounts">supportedChannelCounts</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QList&lt;int&gt; </td><td class="memItemRight bottomAlign"><b><a href="qaudiodeviceinfo.html#supportedSampleRates">supportedSampleRates</a></b> () const</td></tr>
-</table>
 <br/><a name="new-global-functions"></a>
 <h3>    New Global Functions</h3>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> uint </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#qHash-26">qHash</a></b> ( const QUrl &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> uint </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#qHash-13">qHash</a></b> ( const QUrl &amp; <i>url</i> )</td></tr>
 </table>
 <a name="new-qml-elements"></a>
 <h3>    New QML Elements</h3>
@@ -508,8 +508,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -521,7 +521,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

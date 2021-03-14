@@ -169,8 +169,8 @@
 <div class="descr"> <a name="details"></a>
 <pre class="cpp"> <span class="comment">/****************************************************************************
  **
- ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies).
- ** Contact: http://www.qt-project.org/legal
+ ** Copyright (C) 2015 The Qt Company Ltd.
+ ** Contact: http://www.qt.io/licensing/
  **
  ** This file is part of the examples of the Qt Toolkit.
  **
@@ -186,8 +186,8 @@
  **     notice, this list of conditions and the following disclaimer in
  **     the documentation and/or other materials provided with the
  **     distribution.
- **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
- **     of its contributors may be used to endorse or promote products derived
+ **   * Neither the name of The Qt Company Ltd nor the names of its
+ **     contributors may be used to endorse or promote products derived
  **     from this software without specific prior written permission.
  **
  **
@@ -210,17 +210,31 @@
  <span class="preprocessor">#include &quot;imagewidget.h&quot;</span>
  <span class="preprocessor">#include &quot;mainwidget.h&quot;</span>
 
+ <span class="preprocessor">#include &lt;QScreen&gt;</span>
+ <span class="preprocessor">#include &lt;QApplication&gt;</span>
+ <span class="preprocessor">#include &lt;QDesktopWidget&gt;</span>
+ <span class="preprocessor">#include &lt;QDir&gt;</span>
+
  MainWidget<span class="operator">::</span>MainWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
      : <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>(parent)
+     <span class="operator">,</span> imageWidget(<span class="keyword">new</span> ImageWidget(<span class="keyword">this</span>))
  {
-     resize(<span class="number">400</span><span class="operator">,</span> <span class="number">300</span>);
-     imageWidget <span class="operator">=</span> <span class="keyword">new</span> ImageWidget(<span class="keyword">this</span>);
      setCentralWidget(imageWidget);
+     <span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> screenGeometry <span class="operator">=</span> <span class="type"><a href="qapplication.html">QApplication</a></span><span class="operator">::</span>desktop()<span class="operator">-</span><span class="operator">&gt;</span>availableGeometry();
+     <span class="type"><a href="qrect.html">QRect</a></span> geometry(<span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">,</span> <span class="type"><a href="qsize.html">QSize</a></span>(screenGeometry<span class="operator">.</span>width() <span class="operator">*</span> <span class="number">3</span> <span class="operator">/</span> <span class="number">4</span><span class="operator">,</span> screenGeometry<span class="operator">.</span>height() <span class="operator">*</span> <span class="number">3</span> <span class="operator">/</span> <span class="number">4</span>));
+     geometry<span class="operator">.</span>moveCenter(screenGeometry<span class="operator">.</span>center());
+     setGeometry(geometry);
  }
 
  <span class="type">void</span> MainWidget<span class="operator">::</span>openDirectory(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>path)
  {
+     setWindowTitle(<span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>toNativeSeparators(path));
      imageWidget<span class="operator">-</span><span class="operator">&gt;</span>openDirectory(path);
+ }
+
+ <span class="type">void</span> MainWidget<span class="operator">::</span>grabGestures(<span class="keyword">const</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>GestureType<span class="operator">&gt;</span> <span class="operator">&amp;</span>gestures)
+ {
+     imageWidget<span class="operator">-</span><span class="operator">&gt;</span>grabGestures(gestures);
  }</pre>
 </div>
 <!-- @@@gestures/imagegestures/mainwidget.cpp -->
@@ -233,8 +247,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -246,7 +260,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
