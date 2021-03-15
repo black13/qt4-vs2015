@@ -1,0 +1,8 @@
+instructions 
+1. git clone https://github.com/black13/qt4-vs2015
+2. checkout branch 4.8.7
+3. create build directory qt4vs2015build at same level as qt4-vs2015 ...
+4. cd to qt4vs2015build
+5. run ..\qt4-vs2015\configure -make nmake -platform win32-msvc2015 -prefix c:\Qt-2015\4.8.6\msvc2015 -opensource -confirm-license -opengl desktop -nomake examples -nomake tests
+6. run nmake 
+7. run nmake install
