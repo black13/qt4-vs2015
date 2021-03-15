@@ -1,0 +1,12 @@
+--- src/3rdparty/clucene/src/CLucene/StdHeader.h	2015-05-07 16:14:48.000000000 +1000
++++ src/3rdparty/clucene/src/CLucene/StdHeader.h	2016-03-23 10:05:39.819032300 +1100
+@@ -123,6 +123,9 @@
+ #endif
+ 
+ #if !defined(LUCENE_DISABLE_HASHING) && defined(_CL_HAVE_HASH_MAP) && defined(_CL_HAVE_HASH_SET)
++	#if (defined(_MSC_VER) && (_MSC_VER >= 1900))
++	#define _SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS
++	#endif
+ 	//hashing is all or nothing!
+ 	#include <hash_map>
+ 	#include <hash_set>

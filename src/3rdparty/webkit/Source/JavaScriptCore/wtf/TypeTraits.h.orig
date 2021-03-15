@@ -39,6 +39,7 @@ namespace WTF {
     //   IsSameType<T, U>::value
     //
     //   RemovePointer<T>::Type
+    //   RemoveReference<T>::Type
     //   RemoveConst<T>::Type
     //   RemoveVolatile<T>::Type
     //   RemoveConstVolatile<T>::Type
@@ -62,38 +63,42 @@ namespace WTF {
     template<> struct IsInteger<wchar_t>            { static const bool value = true; };
 #endif
 
+    template<typename T> struct IsFloatingPoint     { static const bool value = false; };
+    template<> struct IsFloatingPoint<float>        { static const bool value = true; };
+    template<> struct IsFloatingPoint<double>       { static const bool value = true; };
+    template<> struct IsFloatingPoint<long double>  { static const bool value = true; };
+
+    template<typename T> struct IsArithmetic     { static const bool value = IsInteger<T>::value || IsFloatingPoint<T>::value; };
+
     // IsPod is misnamed as it doesn't cover all plain old data (pod) types.
     // Specifically, it doesn't allow for enums or for structs.
-    template <typename T> struct IsPod           { static const bool value = IsInteger<T>::value; };
-    template <> struct IsPod<float>              { static const bool value = true; };
-    template <> struct IsPod<double>             { static const bool value = true; };
-    template <> struct IsPod<long double>        { static const bool value = true; };
+    template <typename T> struct IsPod           { static const bool value = IsArithmetic<T>::value; };
     template <typename P> struct IsPod<P*>       { static const bool value = true; };
 
-    // Avoid "possible loss of data" warning when using Microsoft's C++ compiler
-    // by not converting int's to doubles.
-    template<bool performCheck, typename U> class CheckedIsConvertibleToDouble;
-    template<typename U> class CheckedIsConvertibleToDouble<false, U> {
-    public:
-        static const bool value = false;
-    };
-
-    template<typename U> class CheckedIsConvertibleToDouble<true, U> {
-        typedef char YesType;
-        struct NoType {
-            char padding[8];
+    template<typename T> class IsConvertibleToInteger {
+        // Avoid "possible loss of data" warning when using Microsoft's C++ compiler
+        // by not converting int's to doubles.
+        template<bool performCheck, typename U> class IsConvertibleToDouble;
+        template<typename U> class IsConvertibleToDouble<false, U> {
+        public:
+            static const bool value = false;
         };
 
-        static YesType floatCheck(long double);
-        static NoType floatCheck(...);
-        static U& t;
-    public:
-        static const bool value = sizeof(floatCheck(t)) == sizeof(YesType);
-    };
+        template<typename U> class IsConvertibleToDouble<true, U> {
+            typedef char YesType;
+            struct NoType {
+                char padding[8];
+            };
 
-    template<typename T> class IsConvertibleToInteger {
+            static YesType floatCheck(long double);
+            static NoType floatCheck(...);
+            static T& t;
+        public:
+            static const bool value = sizeof(floatCheck(t)) == sizeof(YesType);
+        };
+
     public:
-        static const bool value = IsInteger<T>::value || CheckedIsConvertibleToDouble<!IsInteger<T>::value, T>::value;
+        static const bool value = IsInteger<T>::value || IsConvertibleToDouble<!IsInteger<T>::value, T>::value;
     };
 
     template <typename T, typename U> struct IsSameType {
@@ -166,20 +171,20 @@ namespace WTF {
         typedef T Type;
     };
 
+    template <typename T> struct RemoveReference {
+        typedef T Type;
+    };
+
+    template <typename T> struct RemoveReference<T&> {
+        typedef T Type;
+    };
+
 #if (defined(__GLIBCXX__) && (__GLIBCXX__ >= 20070724) && defined(__GXX_EXPERIMENTAL_CXX0X__)) || (defined(_MSC_VER) && (_MSC_VER >= 1600))
 
     // GCC's libstdc++ 20070724 and later supports C++ TR1 type_traits in the std namespace.
     // VC10 (VS2010) and later support C++ TR1 type_traits in the std::tr1 namespace.
-    // VC14 (VS2015) and later support C++11 type_traits in the std namespace, but old TR1 names
-    // have been removed. See https://msdn.microsoft.com/en-us/library/vstudio/bb531344(v=vs.140).aspx
-    // for details.
-#if (defined(_MSC_VER) && (_MSC_VER >= 1900))
-    template<typename T> struct HasTrivialConstructor : public std::is_trivially_default_constructible<T> { };
-    template<typename T> struct HasTrivialDestructor : public std::is_trivially_destructible<T> { };
-#else
     template<typename T> struct HasTrivialConstructor : public std::tr1::has_trivial_constructor<T> { };
     template<typename T> struct HasTrivialDestructor : public std::tr1::has_trivial_destructor<T> { };
-#endif
 
 #else
 

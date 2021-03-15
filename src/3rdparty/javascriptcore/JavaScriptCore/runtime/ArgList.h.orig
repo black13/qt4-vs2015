@@ -22,18 +22,16 @@
 #ifndef ArgList_h
 #define ArgList_h
 
-#include "CallFrame.h"
 #include "Register.h"
 #include <wtf/HashSet.h>
+#include <wtf/Noncopyable.h>
 #include <wtf/Vector.h>
 
 namespace JSC {
 
     class MarkStack;
-    typedef MarkStack SlotVisitor;
 
-    class MarkedArgumentBuffer {
-        WTF_MAKE_NONCOPYABLE(MarkedArgumentBuffer);
+    class MarkedArgumentBuffer : public Noncopyable {
     private:
         static const unsigned inlineCapacity = 8;
         typedef Vector<Register, inlineCapacity> VectorType;
@@ -68,12 +66,12 @@ namespace JSC {
         {
         }
 
-        void initialize(WriteBarrier<Unknown>* buffer, size_t size)
+        void initialize(Register* buffer, size_t size)
         {
             ASSERT(!m_markSet);
             ASSERT(isEmpty());
 
-            m_buffer = reinterpret_cast<Register*>(buffer);
+            m_buffer = buffer;
             m_size = size;
 #ifndef NDEBUG
             m_isReadOnly = true;
@@ -142,7 +140,7 @@ namespace JSC {
         const_iterator begin() const { return m_buffer; }
         const_iterator end() const { return m_buffer + m_size; }
 
-        static void markLists(HeapRootVisitor&, ListSet&);
+        static void markLists(MarkStack&, ListSet&);
 
     private:
         void slowAppend(JSValue);
@@ -174,9 +172,7 @@ namespace JSC {
         void operator delete[](void*);
 
         void* operator new(size_t, void*);
-#if !(defined(_MSC_VER) && (_MSC_VER >= 1900))
         void operator delete(void*, size_t);
-#endif
     };
 
     class ArgList {
@@ -188,12 +184,6 @@ namespace JSC {
         ArgList()
             : m_args(0)
             , m_argCount(0)
-        {
-        }
-        
-        ArgList(ExecState* exec)
-            : m_args(reinterpret_cast<JSValue*>(&exec[exec->hostThisRegister() + 1]))
-            , m_argCount(exec->argumentCount())
         {
         }
         
