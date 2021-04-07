@@ -186,20 +186,20 @@
 <p>Qt for Windows CE has some requirements that are given in more detail in the <a href="requirements-wince.html">Qt for Windows CE Requirements</a> document.</p>
 <a name="step-1-install-the-license-file-commercial-editions-only"></a>
 <h2>Step 1: Install the License File (commercial editions only)</h2>
-<p>Uncompress the files into the directory you want to install Qt into; e.g&#x2e;, <tt>C:\Qt\4.8&#x2e;6</tt>.</p>
+<p>Uncompress the files into the directory you want to install Qt into; e.g&#x2e;, <tt>C:\Qt\4.8&#x2e;7</tt>.</p>
 <p><b>Note:</b> The install path must not contain any spaces.</p>
 <a name="step-2-set-the-environment-variables"></a>
 <h2>Step 2: Set the Environment variables</h2>
 <p>In order to build and use Qt, the <tt>PATH</tt> environment variable needs to be extended:</p>
 <pre class="cpp"> PATH               - to locate qmake, moc and other Qt tools</pre>
-<p>This is done by adding <tt>c:\Qt\4.8&#x2e;6\bin</tt> to the <tt>PATH</tt> variable.</p>
+<p>This is done by adding <tt>c:\Qt\4.8&#x2e;7\bin</tt> to the <tt>PATH</tt> variable.</p>
 <p>For newer versions of Windows, <tt>PATH</tt> can be extended through &quot;Control Panel-&gt;System-&gt;Advanced-&gt;Environment variables&quot; and for older versions by editing <tt>c:\autoexec.bat</tt>.</p>
 <p>Make sure the enviroment variables for your compiler are set. Visual Studio includes <tt>vcvars32.bat</tt> for that purpose - or simply use the &quot;Visual Studio Command Prompt&quot; from the Start menu.</p>
 <a name="step-3-configure-qt"></a>
 <h2>Step 3: Configure Qt</h2>
 <p>To configure Qt for Windows Mobile 5.0 for Pocket PC, type the following:</p>
 <pre class="cpp"> C:
- cd \Qt\4.8.6
+ cd \Qt\4.8.7
  configure -platform win32-msvc2005 -xplatform wincewm50pocket-msvc2005</pre>
 <p>If you want to configure Qt for another platform or with other options, type <tt>configure -help</tt> to get a list of all available options. The <a href="configure-options.html">Configuration Options for Qt</a> page gives a brief overview of these. See the <tt>README</tt> file for the list of supported platforms.</p>
 <a name="step-4-build-qt-library"></a>
@@ -221,7 +221,7 @@
 <ul>
 <li><a href="how-to-learn-qt.html">How to Learn Qt</a></li>
 <li><a href="tutorials.html">Tutorials</a></li>
-<li><a href="http://qt-project.org">Developer Network</a></li>
+<li><a href="http://www.qt.io/developers/">Developer Network</a></li>
 <li><a href="deployment.html">Deploying Qt Applications</a></li>
 </ul>
 <p>You might also want to try the following Windows CE specific links:</p>
@@ -251,8 +251,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -264,7 +264,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

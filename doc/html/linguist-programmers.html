@@ -284,7 +284,7 @@
 <pre class="cpp"> tr(<span class="string">&quot;%n item(s) replaced&quot;</span><span class="operator">,</span> <span class="string">&quot;&quot;</span><span class="operator">,</span> count);</pre>
 <p>If a French translation is loaded, this will expand to &quot;0 item remplacé&quot;, &quot;1 item remplacé&quot;, &quot;2 items remplacés&quot;, etc., depending on <tt>n</tt>'s value. And if no translation is loaded, the original string is used, with <tt>%n</tt> replaced with count's value (e.g&#x2e;, &quot;6 item(s) replaced&quot;).</p>
 <p>To handle plural forms in the native language, you need to load a translation file for this language, too. <a href="linguist-manager.html#lupdate">lupdate</a> has the <tt>-pluralonly</tt> command line option, which allows the creation of TS files containing only entries with plural forms.</p>
-<p>See the <a href="http://doc.qt.nokia.com/qq/">Qt Quarterly</a> Article <a href="http://doc.qt.nokia.com/qq/qq19-plurals.html">Plural Forms in Translations</a> for further details on this issue.</p>
+<p>See the <a href="http://doc.qt.digia.com/qq/">Qt Quarterly</a> Article <a href="http://doc.qt.digia.com/qq/qq19-plurals.html">Plural Forms in Translations</a> for further details on this issue.</p>
 <a name="coping-with-c-namespaces"></a>
 <h3>Coping With C++ Namespaces</h3>
 <p>C++ namespaces and the <tt>using namespace</tt> statement can confuse <a href="linguist-manager.html#lupdate">lupdate</a>. It will interpret <tt>MyClass::tr()</tt> as meaning just that, not as <tt>MyNamespace::MyClass::tr()</tt>, even if <tt>MyClass</tt> is defined in the <tt>MyNamespace</tt> namespace. Runtime translation of these strings will fail because of that.</p>
@@ -368,8 +368,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -381,7 +381,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

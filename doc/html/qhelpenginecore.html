@@ -236,6 +236,7 @@
 <h2>Signals</h2>
 <table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qhelpenginecore.html#currentFilterChanged">currentFilterChanged</a></b> ( const QString &amp; <i>newFilter</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qhelpenginecore.html#readersAboutToBeInvalidated">readersAboutToBeInvalidated</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qhelpenginecore.html#setupFinished">setupFinished</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qhelpenginecore.html#setupStarted">setupStarted</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qhelpenginecore.html#warning">warning</a></b> ( const QString &amp; <i>msg</i> )</td></tr>
@@ -389,6 +390,9 @@
 <p>Returns the namespace name defined for the Qt compressed help file (.qch) specified by its <i>documentationFileName</i>. If the file is not valid, an empty string is returned.</p>
 <p><b>See also </b><a href="qhelpenginecore.html#documentationFileName">documentationFileName</a>().</p>
 <!-- @@@namespaceName -->
+<!-- $$$readersAboutToBeInvalidated[overload1]$$$readersAboutToBeInvalidated -->
+<h3 class="fn"><a name="readersAboutToBeInvalidated"></a><span class="type">void</span> QHelpEngineCore::<span class="name">readersAboutToBeInvalidated</span> ()<tt> [signal]</tt></h3>
+<!-- @@@readersAboutToBeInvalidated -->
 <!-- $$$registerDocumentation[overload1]$$$registerDocumentationconstQString& -->
 <h3 class="fn"><a name="registerDocumentation"></a><span class="type">bool</span> QHelpEngineCore::<span class="name">registerDocumentation</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>documentationFileName</i> )</h3>
 <p>Registers the Qt compressed help file (.qch) contained in the file <i>documentationFileName</i>. One compressed help file, uniquely identified by its namespace can only be registered once. True is returned if the registration was successful, otherwise false.</p>
@@ -446,8 +450,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -459,7 +463,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

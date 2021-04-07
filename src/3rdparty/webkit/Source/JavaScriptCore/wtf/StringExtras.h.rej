@@ -1,0 +1,18 @@
+--- src/3rdparty/webkit/Source/JavaScriptCore/wtf/StringExtras.h	2015-05-07 16:14:46.000000000 +1000
++++ src/3rdparty/webkit/Source/JavaScriptCore/wtf/StringExtras.h	2016-03-23 10:13:35.639305900 +1100
+@@ -37,6 +37,7 @@
+ #if COMPILER(MSVC)
+ // FIXME: why a COMPILER check instead of OS? also, these should be HAVE checks
+ 
++#if (_MSC_VER < 1900)
+ inline int snprintf(char* buffer, size_t count, const char* format, ...) 
+ {
+     int result;
+@@ -52,6 +53,7 @@
+ 
+     return result;
+ }
++#endif
+ 
+ inline double wtf_vsnprintf(char* buffer, size_t count, const char* format, va_list args)
+ {

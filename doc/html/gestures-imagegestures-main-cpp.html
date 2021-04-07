@@ -169,8 +169,8 @@
 <div class="descr"> <a name="details"></a>
 <pre class="cpp"> <span class="comment">/****************************************************************************
  **
- ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies).
- ** Contact: http://www.qt-project.org/legal
+ ** Copyright (C) 2015 The Qt Company Ltd.
+ ** Contact: http://www.qt.io/licensing/
  **
  ** This file is part of the examples of the Qt Toolkit.
  **
@@ -186,8 +186,8 @@
  **     notice, this list of conditions and the following disclaimer in
  **     the documentation and/or other materials provided with the
  **     distribution.
- **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
- **     of its contributors may be used to endorse or promote products derived
+ **   * Neither the name of The Qt Company Ltd nor the names of its
+ **     contributors may be used to endorse or promote products derived
  **     from this software without specific prior written permission.
  **
  **
@@ -210,18 +210,82 @@
  <span class="preprocessor">#include &lt;QtGui&gt;</span>
 
  <span class="preprocessor">#include &quot;mainwidget.h&quot;</span>
+ <span class="preprocessor">#include &quot;imagewidget.h&quot;</span>
+
+ <span class="keyword">static</span> <span class="keyword">const</span> <span class="type">char</span> helpText<span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span>
+ <span class="string">&quot;Usage: ./imagegestures [options] Directory\n\
+ Image Gestures Example\n\
+ \n\
+ Options:\n\
+   --no-pan    Disable pan gesture\n\
+   --no-pinch  Disable pinch gesture\n\
+   --no-swipe  Disable swipe gesture\n\
+   -h, --help  Displays this help.\n\
+ \n\
+ Arguments:\n\
+   Directory   Directory to display\n&quot;</span>;
+
+ <span class="keyword">static</span> <span class="type">void</span> showHelp(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> errorMessage <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span>())
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> text;
+     <span class="type"><a href="qtextstream.html">QTextStream</a></span> str(<span class="operator">&amp;</span>text);
+     str <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;&lt;html&gt;&lt;head/&gt;&lt;body&gt;&quot;</span>;
+     <span class="keyword">if</span> (<span class="operator">!</span>errorMessage<span class="operator">.</span>isEmpty())
+         str <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;&lt;p&gt;&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> errorMessage <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;&lt;/p&gt;&quot;</span>;
+     str <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;&lt;pre&gt;&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> helpText <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;&quot;</span>;
+     <span class="type"><a href="qmessagebox.html">QMessageBox</a></span> box(errorMessage<span class="operator">.</span>isEmpty() <span class="operator">?</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Information : <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Warning<span class="operator">,</span>
+                     QLatin1String(<span class="string">&quot;Image Gestures Example&quot;</span>)<span class="operator">,</span> text<span class="operator">,</span>
+                     <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Ok);
+     box<span class="operator">.</span>exec();
+ }
 
  <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
  {
      <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+     <span class="type"><a href="qcoreapplication.html">QCoreApplication</a></span><span class="operator">::</span>setApplicationVersion(QT_VERSION_STR);
+     <span class="type"><a href="qcoreapplication.html">QCoreApplication</a></span><span class="operator">::</span>setApplicationName(QLatin1String(<span class="string">&quot;imagegestures&quot;</span>));
+
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> arguments <span class="operator">=</span> <span class="type"><a href="qapplication.html">QApplication</a></span><span class="operator">::</span>arguments();
+
+     <span class="type"><a href="qstring.html">QString</a></span> directory;
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>GestureType<span class="operator">&gt;</span> gestures;
+     gestures <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PanGesture <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PinchGesture <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SwipeGesture;
+     <span class="keyword">for</span> (<span class="type">int</span> a <span class="operator">=</span> <span class="number">1</span>; a <span class="operator">&lt;</span> arguments<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>a) {
+         <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>argument <span class="operator">=</span> arguments<span class="operator">.</span>at(a);
+         <span class="keyword">if</span> (argument<span class="operator">.</span>startsWith(QLatin1Char(<span class="char">'-'</span>))) {
+             <span class="keyword">if</span> (argument <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;--no-pan&quot;</span>))
+                 gestures<span class="operator">.</span>removeAll(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PanGesture);
+             <span class="keyword">else</span> <span class="keyword">if</span> (argument <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;--no-pinch&quot;</span>))
+                 gestures<span class="operator">.</span>removeAll(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PinchGesture);
+             <span class="keyword">else</span> <span class="keyword">if</span> (argument <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;--no-swipe&quot;</span>))
+                 gestures<span class="operator">.</span>removeAll(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SwipeGesture);
+             <span class="keyword">else</span> <span class="keyword">if</span> (argument <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;--verbose&quot;</span>))
+                 ImageWidget<span class="operator">::</span>setVerbose(<span class="keyword">true</span>);
+             <span class="keyword">else</span> <span class="keyword">if</span> (argument <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;-h&quot;</span>) <span class="operator">|</span><span class="operator">|</span> argument <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;--help&quot;</span>)) {
+                 showHelp();
+                 <span class="keyword">return</span> <span class="number">0</span>;
+             } <span class="keyword">else</span> {
+                 showHelp(QLatin1String(<span class="string">&quot;Invalid option: &quot;</span>) <span class="operator">+</span> argument);
+                 <span class="keyword">return</span> <span class="number">1</span>;
+             }
+         } <span class="keyword">else</span>
+             directory <span class="operator">=</span> argument;
+     }
 
      MainWidget w;
+     w<span class="operator">.</span>grabGestures(gestures);
      w<span class="operator">.</span>show();
 
-     <span class="keyword">if</span> (<span class="type"><a href="qapplication.html">QApplication</a></span><span class="operator">::</span>arguments()<span class="operator">.</span>size() <span class="operator">&gt;</span> <span class="number">1</span>)
-         w<span class="operator">.</span>openDirectory(<span class="type"><a href="qapplication.html">QApplication</a></span><span class="operator">::</span>arguments()<span class="operator">.</span>at(<span class="number">1</span>));
-     <span class="keyword">else</span>
-         w<span class="operator">.</span>openDirectory(<span class="type"><a href="qfiledialog.html">QFileDialog</a></span><span class="operator">::</span>getExistingDirectory(<span class="number">0</span><span class="operator">,</span> <span class="string">&quot;Select image folder&quot;</span>));
+     <span class="keyword">if</span> (directory<span class="operator">.</span>isEmpty()) {
+         <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> picturesLocation <span class="operator">=</span> <span class="type"><a href="qdesktopservices.html">QDesktopServices</a></span><span class="operator">::</span>storageLocation(<span class="type"><a href="qdesktopservices.html">QDesktopServices</a></span><span class="operator">::</span>PicturesLocation);
+         directory <span class="operator">=</span>
+             <span class="type"><a href="qfiledialog.html">QFileDialog</a></span><span class="operator">::</span>getExistingDirectory(<span class="operator">&amp;</span>w<span class="operator">,</span> <span class="string">&quot;Select image folder&quot;</span><span class="operator">,</span>
+                                               picturesLocation<span class="operator">.</span>isEmpty() <span class="operator">?</span> <span class="type"><a href="qstring.html">QString</a></span>() : picturesLocation);
+         <span class="keyword">if</span> (directory<span class="operator">.</span>isEmpty())
+             <span class="keyword">return</span> <span class="number">0</span>;
+     }
+
+     w<span class="operator">.</span>openDirectory(directory);
 
      <span class="keyword">return</span> app<span class="operator">.</span>exec();
  }</pre>
@@ -236,8 +300,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -249,7 +313,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

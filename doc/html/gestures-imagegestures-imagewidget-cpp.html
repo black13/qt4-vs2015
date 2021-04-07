@@ -169,8 +169,8 @@
 <div class="descr"> <a name="details"></a>
 <pre class="cpp"> <span class="comment">/****************************************************************************
  **
- ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies).
- ** Contact: http://www.qt-project.org/legal
+ ** Copyright (C) 2015 The Qt Company Ltd.
+ ** Contact: http://www.qt.io/licensing/
  **
  ** This file is part of the examples of the Qt Toolkit.
  **
@@ -186,8 +186,8 @@
  **     notice, this list of conditions and the following disclaimer in
  **     the documentation and/or other materials provided with the
  **     distribution.
- **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
- **     of its contributors may be used to endorse or promote products derived
+ **   * Neither the name of The Qt Company Ltd nor the names of its
+ **     contributors may be used to endorse or promote products derived
  **     from this software without specific prior written permission.
  **
  **
@@ -211,6 +211,8 @@
 
  <span class="preprocessor">#include &lt;QtGui&gt;</span>
 
+ <span class="type">bool</span> ImageWidget<span class="operator">::</span>verbose <span class="operator">=</span> <span class="keyword">false</span>;
+
  ImageWidget<span class="operator">::</span>ImageWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
      : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)<span class="operator">,</span>
      position(<span class="number">0</span>)<span class="operator">,</span>
@@ -222,10 +224,12 @@
 
  {
      setMinimumSize(<span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">100</span><span class="operator">,</span><span class="number">100</span>));
+ }
 
-     grabGesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PanGesture);
-     grabGesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PinchGesture);
-     grabGesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SwipeGesture);
+ <span class="type">void</span> ImageWidget<span class="operator">::</span>grabGestures(<span class="keyword">const</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>GestureType<span class="operator">&gt;</span> <span class="operator">&amp;</span>gestures)
+ {
+     foreach (<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>GestureType gesture<span class="operator">,</span> gestures)
+         grabGesture(gesture);
  }
 
  <span class="type">bool</span> ImageWidget<span class="operator">::</span>event(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>event)
@@ -239,10 +243,10 @@
  {
      <span class="type"><a href="qpainter.html">QPainter</a></span> p(<span class="keyword">this</span>);
 
-     <span class="type">float</span> iw <span class="operator">=</span> currentImage<span class="operator">.</span>width();
-     <span class="type">float</span> ih <span class="operator">=</span> currentImage<span class="operator">.</span>height();
-     <span class="type">float</span> wh <span class="operator">=</span> height();
-     <span class="type">float</span> ww <span class="operator">=</span> width();
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> iw <span class="operator">=</span> currentImage<span class="operator">.</span>width();
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> ih <span class="operator">=</span> currentImage<span class="operator">.</span>height();
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> wh <span class="operator">=</span> height();
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> ww <span class="operator">=</span> width();
 
      p<span class="operator">.</span>translate(ww<span class="operator">/</span><span class="number">2</span><span class="operator">,</span> wh<span class="operator">/</span><span class="number">2</span>);
      p<span class="operator">.</span>translate(horizontalOffset<span class="operator">,</span> verticalOffset);
@@ -260,10 +264,14 @@
      verticalOffset <span class="operator">=</span> <span class="number">0</span>;
      horizontalOffset <span class="operator">=</span> <span class="number">0</span>;
      update();
+     <span class="keyword">if</span> (ImageWidget<span class="operator">::</span>verbose)
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;reset on mouse double click&quot;</span>;
  }
 
  <span class="type">bool</span> ImageWidget<span class="operator">::</span>gestureEvent(<span class="type"><a href="qgestureevent.html">QGestureEvent</a></span> <span class="operator">*</span>event)
  {
+     <span class="keyword">if</span> (ImageWidget<span class="operator">::</span>verbose)
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;gestureEvent():&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> event<span class="operator">-</span><span class="operator">&gt;</span>gestures()<span class="operator">.</span>size();
      <span class="keyword">if</span> (<span class="type"><a href="qgesture.html">QGesture</a></span> <span class="operator">*</span>swipe <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>gesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SwipeGesture))
          swipeTriggered(<span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(swipe));
      <span class="keyword">else</span> <span class="keyword">if</span> (<span class="type"><a href="qgesture.html">QGesture</a></span> <span class="operator">*</span>pan <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>gesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PanGesture))
@@ -286,6 +294,8 @@
      }
  <span class="preprocessor">#endif</span>
      <span class="type"><a href="qpointf.html">QPointF</a></span> delta <span class="operator">=</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>delta();
+     <span class="keyword">if</span> (ImageWidget<span class="operator">::</span>verbose)
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;panTriggered():&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> delta;
      horizontalOffset <span class="operator">+</span><span class="operator">=</span> delta<span class="operator">.</span>x();
      verticalOffset <span class="operator">+</span><span class="operator">=</span> delta<span class="operator">.</span>y();
      update();
@@ -295,13 +305,18 @@
  {
      <span class="type"><a href="qpinchgesture.html">QPinchGesture</a></span><span class="operator">::</span>ChangeFlags changeFlags <span class="operator">=</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>changeFlags();
      <span class="keyword">if</span> (changeFlags <span class="operator">&amp;</span> <span class="type"><a href="qpinchgesture.html">QPinchGesture</a></span><span class="operator">::</span>RotationAngleChanged) {
-         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> value <span class="operator">=</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>property(<span class="string">&quot;rotationAngle&quot;</span>)<span class="operator">.</span>toReal();
-         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> lastValue <span class="operator">=</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>property(<span class="string">&quot;lastRotationAngle&quot;</span>)<span class="operator">.</span>toReal();
-         rotationAngle <span class="operator">+</span><span class="operator">=</span> value <span class="operator">-</span> lastValue;
+         <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> value <span class="operator">=</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>property(<span class="string">&quot;rotationAngle&quot;</span>)<span class="operator">.</span>toReal();
+         <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> lastValue <span class="operator">=</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>property(<span class="string">&quot;lastRotationAngle&quot;</span>)<span class="operator">.</span>toReal();
+         <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> rotationAngleDelta <span class="operator">=</span> value <span class="operator">-</span> lastValue;
+         rotationAngle <span class="operator">+</span><span class="operator">=</span> rotationAngleDelta;
+         <span class="keyword">if</span> (ImageWidget<span class="operator">::</span>verbose)
+             <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;pinchTriggered(): rotation by&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> rotationAngleDelta <span class="operator">&lt;</span><span class="operator">&lt;</span> rotationAngle;
      }
      <span class="keyword">if</span> (changeFlags <span class="operator">&amp;</span> <span class="type"><a href="qpinchgesture.html">QPinchGesture</a></span><span class="operator">::</span>ScaleFactorChanged) {
          <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> value <span class="operator">=</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>property(<span class="string">&quot;scaleFactor&quot;</span>)<span class="operator">.</span>toReal();
          currentStepScaleFactor <span class="operator">=</span> value;
+         <span class="keyword">if</span> (ImageWidget<span class="operator">::</span>verbose)
+             <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;pinchTriggered(): &quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> currentStepScaleFactor;
      }
      <span class="keyword">if</span> (gesture<span class="operator">-</span><span class="operator">&gt;</span>state() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>GestureFinished) {
          scaleFactor <span class="operator">*</span><span class="operator">=</span> currentStepScaleFactor;
@@ -314,10 +329,15 @@
  {
      <span class="keyword">if</span> (gesture<span class="operator">-</span><span class="operator">&gt;</span>state() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>GestureFinished) {
          <span class="keyword">if</span> (gesture<span class="operator">-</span><span class="operator">&gt;</span>horizontalDirection() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span><span class="operator">::</span>Left
-             <span class="operator">|</span><span class="operator">|</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>verticalDirection() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span><span class="operator">::</span>Up)
+             <span class="operator">|</span><span class="operator">|</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>verticalDirection() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span><span class="operator">::</span>Up) {
+             <span class="keyword">if</span> (ImageWidget<span class="operator">::</span>verbose)
+                 <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;swipeTriggered(): swipe to previous&quot;</span>;
              goPrevImage();
-         <span class="keyword">else</span>
+         } <span class="keyword">else</span> {
+             <span class="keyword">if</span> (ImageWidget<span class="operator">::</span>verbose)
+                 <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;swipeTriggered(): swipe to next&quot;</span>;
              goNextImage();
+         }
          update();
      }
  }
@@ -342,17 +362,23 @@
 
  <span class="type"><a href="qimage.html">QImage</a></span> ImageWidget<span class="operator">::</span>loadImage(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName)
  {
+     <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> position <span class="operator">&lt;</span><span class="operator">&lt;</span> files <span class="operator">&lt;</span><span class="operator">&lt;</span> fileName;
      <span class="type"><a href="qimagereader.html">QImageReader</a></span> reader(fileName);
+     <span class="keyword">if</span> (ImageWidget<span class="operator">::</span>verbose)
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;loading&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>toNativeSeparators(fileName) <span class="operator">&lt;</span><span class="operator">&lt;</span> position <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="char">'/'</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> files<span class="operator">.</span>size();
      <span class="keyword">if</span> (<span class="operator">!</span>reader<span class="operator">.</span>canRead()) {
-         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> fileName <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;: can't load image&quot;</span>;
+         <a href="qtglobal.html#qWarning">qWarning</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>toNativeSeparators(fileName) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;: can't load image&quot;</span>;
          <span class="keyword">return</span> <span class="type"><a href="qimage.html">QImage</a></span>();
      }
 
      <span class="type"><a href="qimage.html">QImage</a></span> image;
      <span class="keyword">if</span> (<span class="operator">!</span>reader<span class="operator">.</span>read(<span class="operator">&amp;</span>image)) {
-         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> fileName <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;: corrupted image&quot;</span>;
+         <a href="qtglobal.html#qWarning">qWarning</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>toNativeSeparators(fileName) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;: corrupted image: &quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> reader<span class="operator">.</span>errorString();
          <span class="keyword">return</span> <span class="type"><a href="qimage.html">QImage</a></span>();
      }
+     <span class="keyword">const</span> <span class="type"><a href="qsize.html">QSize</a></span> maximumSize(<span class="number">2000</span><span class="operator">,</span> <span class="number">2000</span>); <span class="comment">// Reduce in case someone has large photo images.</span>
+     <span class="keyword">if</span> (image<span class="operator">.</span>size()<span class="operator">.</span>width() <span class="operator">&gt;</span> maximumSize<span class="operator">.</span>width() <span class="operator">|</span><span class="operator">|</span> image<span class="operator">.</span>height() <span class="operator">&gt;</span> maximumSize<span class="operator">.</span>height())
+         image <span class="operator">=</span> image<span class="operator">.</span>scaled(maximumSize<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>KeepAspectRatio<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SmoothTransformation);
      <span class="keyword">return</span> image;
  }
 
@@ -396,7 +422,7 @@
          <span class="keyword">return</span>;
 
      <span class="keyword">if</span> (index <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> index <span class="operator">&gt;</span><span class="operator">=</span> files<span class="operator">.</span>size()) {
-         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;goToImage: invalid index: &quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> index;
+         <a href="qtglobal.html#qWarning">qWarning</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;goToImage: invalid index: &quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> index;
          <span class="keyword">return</span>;
      }
 
@@ -434,8 +460,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -447,7 +473,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

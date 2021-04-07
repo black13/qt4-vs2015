@@ -190,18 +190,18 @@
 <h2>Step 2: Unpacking the Archive</h2>
 <p>First uncompress the archive in the preferred location, then unpack it:</p>
 <pre class="cpp"> cd &lt;anywhere&gt;
- gunzip qt-everywhere-opensource-src-4.8.6.tar.gz
- tar xf qt-everywhere-opensource-src-4.8.6.tar</pre>
+ gunzip qt-everywhere-opensource-src-4.8.7.tar.gz
+ tar xf qt-everywhere-opensource-src-4.8.7.tar</pre>
 <p>This document assumes that the archive is unpacked in the following directory:</p>
-<pre class="cpp"> ~/qt-everywhere-opensource-src-4.8.6</pre>
+<pre class="cpp"> ~/qt-everywhere-opensource-src-4.8.7</pre>
 <a name="step-3-building-the-library"></a>
 <h2>Step 3: Building the Library</h2>
 <p>Before building the <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> library, run the <tt>./configure</tt> script to configure the library for your development architecture. You can list all of the configuration system's options by typing</p>
 <pre class="cpp"> ./configure -embedded -help</pre>
 <p>The <a href="configure-options.html">Configuration Options for Qt</a> page gives a brief overview of these.</p>
-<p>Note that by default, <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> is configured for installation in the <tt>/usr/local/Trolltech/QtEmbedded-4.8&#x2e;6</tt> directory, but this can be changed by using the <tt>-prefix</tt> option. Alternatively, the <tt>-prefix-install</tt> option can be used to specify a &quot;local&quot; installation within the source directory.</p>
+<p>Note that by default, <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> is configured for installation in the <tt>/usr/local/Trolltech/QtEmbedded-4.8&#x2e;7</tt> directory, but this can be changed by using the <tt>-prefix</tt> option. Alternatively, the <tt>-prefix-install</tt> option can be used to specify a &quot;local&quot; installation within the source directory.</p>
 <p>The configuration system is also designed to allow you to specify your platform architecture:</p>
-<pre class="cpp"> cd  ~/qt-everywhere-opensource-src-4.8.6
+<pre class="cpp"> cd  ~/qt-everywhere-opensource-src-4.8.7
  ./configure -embedded [architecture]</pre>
 <p>In general, all Linux systems which have framebuffer support can use the <tt>generic</tt> architecture. Other typical architectures are <tt>x86</tt>, <tt>arm</tt> and <tt>mips</tt>.</p>
 <p><b>Note:</b> If you want to build Qt for Embedded Linux for use with a virtual framebuffer, pass the <tt>-qvfb</tt> option to the <tt>configure</tt> script.</p>
@@ -216,12 +216,12 @@
 <h2>Step 4: Adjusting the Environment Variables</h2>
 <p>In order to use <a href="qt-embedded-linux.html">Qt for Embedded Linux</a>, the <tt>PATH</tt> variable must be extended to locate <tt>qmake</tt>, <tt>moc</tt> and other <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> tools, and the <tt>LD_LIBRARY_PATH</tt> must be extended for compilers that do not support <tt>rpath</tt>.</p>
 <p>To set the <tt>PATH</tt> variable, add the following lines to your <tt>.profile</tt> file if your shell is bash, ksh, zsh or sh:</p>
-<pre class="cpp"> PATH=/usr/local/Trolltech/QtEmbedded-4.8.6/bin:$PATH
+<pre class="cpp"> PATH=/usr/local/Trolltech/QtEmbedded-4.8.7/bin:$PATH
  export PATH</pre>
 <p>In case your shell is csh or tcsh, add the following line to the <tt>.login</tt> file instead:</p>
-<pre class="cpp"> setenv PATH /usr/local/Trolltech/QtEmbedded-4.8.6/bin:$PATH</pre>
+<pre class="cpp"> setenv PATH /usr/local/Trolltech/QtEmbedded-4.8.7/bin:$PATH</pre>
 <p>If you use a different shell, please modify your environment variables accordingly.</p>
-<p>For compilers that do not support <tt>rpath</tt> you must also extend the <tt>LD_LIBRARY_PATH</tt> environment variable to include <tt>/usr/local/Trolltech/QtEmbedded-4.8&#x2e;6/lib</tt>. Note that on Linux with GCC, this step is not needed.</p>
+<p>For compilers that do not support <tt>rpath</tt> you must also extend the <tt>LD_LIBRARY_PATH</tt> environment variable to include <tt>/usr/local/Trolltech/QtEmbedded-4.8&#x2e;7/lib</tt>. Note that on Linux with GCC, this step is not needed.</p>
 <a name="step-5-building-the-virtual-framebuffer"></a>
 <h2>Step 5: Building the Virtual Framebuffer</h2>
 <p>For development and debugging, <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> provides a virtual framebuffer as well as the option of running <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> as a VNC server. For a description of how to install the virtual framebuffer and how to use the VNC protocol, please consult the documentation at:</p>
@@ -253,8 +253,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -266,7 +266,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

@@ -192,7 +192,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#addLine">addLine</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#addPage">addPage</a></b> ()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#bound">bound</a></b> ( int <i>v</i> ) const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#lineStep">lineStep</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#lineStepx">lineStep</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#maxValue">maxValue</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#minValue">minValue</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="q3rangecontrol.html#pageStep">pageStep</a></b> () const</td></tr>
@@ -226,10 +226,10 @@
 <li><i>Current value</i> The bounded integer that Q3RangeControl maintains. <a href="q3rangecontrol.html#value">value</a>() returns it, and several functions, including <a href="q3rangecontrol.html#setValue">setValue</a>(), set it.</li>
 <li><i>Minimum</i> The lowest value that <a href="q3rangecontrol.html#value">value</a>() can ever return. Returned by <a href="q3rangecontrol.html#minValue">minValue</a>() and set by <a href="q3rangecontrol.html#setRange">setRange</a>() or one of the constructors.</li>
 <li><i>Maximum</i> The highest value that <a href="q3rangecontrol.html#value">value</a>() can ever return. Returned by <a href="q3rangecontrol.html#maxValue">maxValue</a>() and set by <a href="q3rangecontrol.html#setRange">setRange</a>() or one of the constructors.</li>
-<li><i>Line step</i> The smaller of two natural steps that Q3RangeControl provides and typically corresponds to the user pressing an arrow key. The line step is returned by <a href="q3rangecontrol.html#lineStep">lineStep</a>() and set using <a href="q3rangecontrol.html#setSteps">setSteps</a>(). The functions <a href="q3rangecontrol.html#addLine">addLine</a>() and <a href="q3rangecontrol.html#subtractLine">subtractLine</a>() respectively increment and decrement the current value by <a href="q3rangecontrol.html#lineStep">lineStep</a>().</li>
+<li><i>Line step</i> The smaller of two natural steps that Q3RangeControl provides and typically corresponds to the user pressing an arrow key. The line step is returned by <a href="q3rangecontrol.html#lineStepx">lineStep</a>() and set using <a href="q3rangecontrol.html#setSteps">setSteps</a>(). The functions <a href="q3rangecontrol.html#addLine">addLine</a>() and <a href="q3rangecontrol.html#subtractLine">subtractLine</a>() respectively increment and decrement the current value by <a href="q3rangecontrol.html#lineStepx">lineStep</a>().</li>
 <li><i>Page step</i> The larger of two natural steps that Q3RangeControl provides and typically corresponds to the user pressing PageUp or PageDown. The page step is returned by <a href="q3rangecontrol.html#pageStep">pageStep</a>() and set using <a href="q3rangecontrol.html#setSteps">setSteps</a>(). The functions <a href="q3rangecontrol.html#addPage">addPage</a>() and substractPage() respectively increment and decrement the current value by <a href="q3rangecontrol.html#pageStep">pageStep</a>().</li>
 </ol>
-<p>Unity (1) may be viewed as a third step size. <a href="q3rangecontrol.html#setValue">setValue</a>() lets you set the current value to any integer in the allowed range, not just <a href="q3rangecontrol.html#minValue">minValue</a>() + <i>n</i> * <a href="q3rangecontrol.html#lineStep">lineStep</a>() for integer values of <i>n</i>. Some widgets may allow the user to set any value at all; others may just provide multiples of <a href="q3rangecontrol.html#lineStep">lineStep</a>() or <a href="q3rangecontrol.html#pageStep">pageStep</a>().</p>
+<p>Unity (1) may be viewed as a third step size. <a href="q3rangecontrol.html#setValue">setValue</a>() lets you set the current value to any integer in the allowed range, not just <a href="q3rangecontrol.html#minValue">minValue</a>() + <i>n</i> * <a href="q3rangecontrol.html#lineStepx">lineStep</a>() for integer values of <i>n</i>. Some widgets may allow the user to set any value at all; others may just provide multiples of <a href="q3rangecontrol.html#lineStepx">lineStep</a>() or <a href="q3rangecontrol.html#pageStep">pageStep</a>().</p>
 <p>Q3RangeControl provides three virtual functions that are well suited for updating the on-screen representation of range controls and emitting signals: <a href="q3rangecontrol.html#valueChange">valueChange</a>(), <a href="q3rangecontrol.html#rangeChange">rangeChange</a>() and <a href="q3rangecontrol.html#stepChange">stepChange</a>().</p>
 <p>Q3RangeControl also provides a function called <a href="q3rangecontrol.html#bound">bound</a>() which lets you force arbitrary integers to be within the allowed range of the range control.</p>
 <p>We recommend that all widgets that inherit Q3RangeControl provide at least a signal called valueChanged(); many widgets will want to provide addStep(), <a href="q3rangecontrol.html#addPage">addPage</a>(), substractStep() and substractPage() as slots.</p>
@@ -276,7 +276,7 @@
 <p><b>See also </b><a href="q3rangecontrol.html#setValue">setValue</a>().</p>
 <!-- @@@directSetValue -->
 <!-- $$$lineStep[overload1]$$$lineStep -->
-<h3 class="fn"><a name="lineStep"></a><span class="type">int</span> Q3RangeControl::<span class="name">lineStep</span> () const</h3>
+<h3 class="fn"><a name="lineStepx"></a><span class="type">int</span> Q3RangeControl::<span class="name">lineStep</span> () const</h3>
 <p>Returns the line step.</p>
 <p><b>See also </b><a href="q3rangecontrol.html#setSteps">setSteps</a>() and <a href="q3rangecontrol.html#pageStep">pageStep</a>().</p>
 <!-- @@@lineStep -->
@@ -293,7 +293,7 @@
 <!-- $$$pageStep[overload1]$$$pageStep -->
 <h3 class="fn"><a name="pageStep"></a><span class="type">int</span> Q3RangeControl::<span class="name">pageStep</span> () const</h3>
 <p>Returns the page step.</p>
-<p><b>See also </b><a href="q3rangecontrol.html#setSteps">setSteps</a>() and <a href="q3rangecontrol.html#lineStep">lineStep</a>().</p>
+<p><b>See also </b><a href="q3rangecontrol.html#setSteps">setSteps</a>() and <a href="q3rangecontrol.html#lineStepx">lineStep</a>().</p>
 <!-- @@@pageStep -->
 <!-- $$$positionFromValue[overload1]$$$positionFromValueintint -->
 <h3 class="fn"><a name="positionFromValue"></a><span class="type">int</span> Q3RangeControl::<span class="name">positionFromValue</span> ( <span class="type">int</span> <i>logical_val</i>, <span class="type">int</span> <i>span</i> ) const<tt> [protected]</tt></h3>
@@ -337,7 +337,7 @@
 <h3 class="fn"><a name="setSteps"></a><span class="type">void</span> Q3RangeControl::<span class="name">setSteps</span> ( <span class="type">int</span> <i>lineStep</i>, <span class="type">int</span> <i>pageStep</i> )</h3>
 <p>Sets the range's line step to <i>lineStep</i> and page step to <i>pageStep</i>.</p>
 <p>Calls the virtual <a href="q3rangecontrol.html#stepChange">stepChange</a>() function if the new line step or page step are different from the previous settings.</p>
-<p><b>See also </b><a href="q3rangecontrol.html#lineStep">lineStep</a>(), <a href="q3rangecontrol.html#pageStep">pageStep</a>(), and <a href="q3rangecontrol.html#setRange">setRange</a>().</p>
+<p><b>See also </b><a href="q3rangecontrol.html#lineStepx">lineStep</a>(), <a href="q3rangecontrol.html#pageStep">pageStep</a>(), and <a href="q3rangecontrol.html#setRange">setRange</a>().</p>
 <!-- @@@setSteps -->
 <!-- $$$setValue[overload1]$$$setValueint -->
 <h3 class="fn"><a name="setValue"></a><span class="type">void</span> Q3RangeControl::<span class="name">setValue</span> ( <span class="type">int</span> <i>value</i> )</h3>
@@ -391,8 +391,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -404,7 +404,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

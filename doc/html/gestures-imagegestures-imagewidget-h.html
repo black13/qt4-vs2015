@@ -169,8 +169,8 @@
 <div class="descr"> <a name="details"></a>
 <pre class="cpp"> <span class="comment">/****************************************************************************
  **
- ** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies).
- ** Contact: http://www.qt-project.org/legal
+ ** Copyright (C) 2015 The Qt Company Ltd.
+ ** Contact: http://www.qt.io/licensing/
  **
  ** This file is part of the examples of the Qt Toolkit.
  **
@@ -186,8 +186,8 @@
  **     notice, this list of conditions and the following disclaimer in
  **     the documentation and/or other materials provided with the
  **     distribution.
- **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
- **     of its contributors may be used to endorse or promote products derived
+ **   * Neither the name of The Qt Company Ltd nor the names of its
+ **     contributors may be used to endorse or promote products derived
  **     from this software without specific prior written permission.
  **
  **
@@ -226,6 +226,8 @@
  <span class="keyword">public</span>:
      ImageWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
      <span class="type">void</span> openDirectory(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>path);
+     <span class="type">void</span> grabGestures(<span class="keyword">const</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>GestureType<span class="operator">&gt;</span> <span class="operator">&amp;</span>gestures);
+     <span class="keyword">static</span> <span class="type">void</span> setVerbose(<span class="type">bool</span> v) { ImageWidget<span class="operator">::</span>verbose <span class="operator">=</span> v; }
 
  <span class="keyword">protected</span>:
      <span class="type">bool</span> event(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>event);
@@ -253,11 +255,12 @@
      <span class="type"><a href="qimage.html">QImage</a></span> prevImage<span class="operator">,</span> nextImage;
      <span class="type"><a href="qimage.html">QImage</a></span> currentImage;
 
-     <span class="type">float</span> horizontalOffset;
-     <span class="type">float</span> verticalOffset;
-     <span class="type">float</span> rotationAngle;
-     <span class="type">float</span> scaleFactor;
-     <span class="type">float</span> currentStepScaleFactor;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> horizontalOffset;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> verticalOffset;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> rotationAngle;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> scaleFactor;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> currentStepScaleFactor;
+     <span class="keyword">static</span> <span class="type">bool</span> verbose;
  };
 
  <span class="preprocessor">#endif</span></pre>
@@ -272,8 +275,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -285,7 +288,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

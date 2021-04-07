@@ -199,13 +199,13 @@
 <p>If all steps pass without errors your Symbian development environment is very likely installed correctly.</p>
 <a name="step-2-install-qt"></a>
 <h2>Step 2: Install Qt</h2>
-<p>Uncompress the <a href="http://qt.nokia.com/downloads">downloaded</a> source package into the directory you want Qt installed, e.g&#x2e; <tt>C:\Qt\4.8&#x2e;6</tt>.</p>
+<p>Uncompress the <a href="http://qt.nokia.com/downloads">downloaded</a> source package into the directory you want Qt installed, e.g&#x2e; <tt>C:\Qt\4.8&#x2e;7</tt>.</p>
 <p><b>Note:</b> Qt must be installed on the same drive as the Symbian SDK you are using, and the install path must not contain any spaces.</p>
 <a name="step-3-set-the-environment-variables"></a>
 <h2>Step 3: Set the Environment variables</h2>
 <p>In order to build and use Qt, the <tt>PATH</tt> environment variable needs to be extended:</p>
 <pre class="cpp"> PATH               - to locate qmake, moc and other Qt tools</pre>
-<p>This is done by adding <tt>c:\Qt\4.8&#x2e;6\bin</tt> to the <tt>PATH</tt> variable.</p>
+<p>This is done by adding <tt>c:\Qt\4.8&#x2e;7\bin</tt> to the <tt>PATH</tt> variable.</p>
 <p>On Windows the<tt>PATH</tt> can be extended by navigating to &quot;Control Panel-&gt;System-&gt;Advanced-&gt;Environment variables&quot;.</p>
 <p>In addition, you must configure the environment for use with the Symbian emulator. This is done by locating the Carbide.c++ submenu on the Start menu, and choosing &quot;Configure environment for WINSCW command line&quot;.</p>
 <p>If you are planning to use <tt>abld</tt> (the default build system that comes with the S60 SDK) to build Qt, you will also need to set the following environment variable:</p>
@@ -214,11 +214,11 @@
 <a name="step-4-configure-qt"></a>
 <h2>Step 4: Configure Qt</h2>
 <p>To configure Qt for the Symbian platform, do:</p>
-<pre class="cpp"> cd \Qt\4.8.6
+<pre class="cpp"> cd \Qt\4.8.7
  configure -platform win32-g++ -xplatform symbian-abld</pre>
 <p>(to build the tools using MinGW, and the libraries using abld)</p>
 <p><b>or</b></p>
-<pre class="cpp"> cd \Qt\4.8.6
+<pre class="cpp"> cd \Qt\4.8.7
  configure -platform win32-g++ -xplatform symbian-sbsv2</pre>
 <p>(to build the tools using MinGW, and the libraries using SBSv2)</p>
 <p>Type <tt>./configure -help</tt> to get a list of all available options. The <a href="configure-options.html">Configuration Options for Qt</a> page gives a brief overview of these.</p>
@@ -284,8 +284,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -297,7 +297,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

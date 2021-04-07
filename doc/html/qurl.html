@@ -231,7 +231,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#isRelative">isRelative</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#isValid">isValid</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#password">password</a></b> () const</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#pathx">path</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#path">path</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#port">port</a></b> () const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#port-2">port</a></b> ( int <i>defaultPort</i> ) const</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#queryItemValue">queryItemValue</a></b> ( const QString &amp; <i>key</i> ) const</td></tr>
@@ -295,9 +295,9 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> uint </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#qHash-26">qHash</a></b> ( const QUrl &amp; <i>url</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#operator-lt-lt-161">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QUrl &amp; <i>url</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#operator-gt-gt-85">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QUrl &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> uint </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#qHash-13">qHash</a></b> ( const QUrl &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#operator-lt-lt-88">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QUrl &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qurl.html#operator-gt-gt-55">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QUrl &amp; <i>url</i> )</td></tr>
 </table>
 <a name="macros"></a>
 <h2>Macros</h2>
@@ -611,7 +611,7 @@
 <p><b>See also </b><a href="qurl.html#setPassword">setPassword</a>().</p>
 <!-- @@@password -->
 <!-- $$$path[overload1]$$$path -->
-<h3 class="fn"><a name="pathx"></a><span class="type"><a href="qstring.html">QString</a></span> QUrl::<span class="name">path</span> () const</h3>
+<h3 class="fn"><a name="path"></a><span class="type"><a href="qstring.html">QString</a></span> QUrl::<span class="name">path</span> () const</h3>
 <p>Returns the path of the URL.</p>
 <p><b>See also </b><a href="qurl.html#setPath">setPath</a>().</p>
 <!-- @@@path -->
@@ -789,7 +789,7 @@
 <h3 class="fn"><a name="setPath"></a><span class="type">void</span> QUrl::<span class="name">setPath</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>path</i> )</h3>
 <p>Sets the path of the URL to <i>path</i>. The path is the part of the URL that comes after the authority but before the query string.</p>
 <p class="centerAlign"><img src="images/qurl-ftppath.png" alt="" /></p><p>For non-hierarchical schemes, the path will be everything following the scheme declaration, as in the following example:</p>
-<p class="centerAlign"><img src="images/qurl-mailtopath.png" alt="" /></p><p><b>See also </b><a href="qurl.html#pathx">path</a>().</p>
+<p class="centerAlign"><img src="images/qurl-mailtopath.png" alt="" /></p><p><b>See also </b><a href="qurl.html#path">path</a>().</p>
 <!-- @@@setPath -->
 <!-- $$$setPort[overload1]$$$setPortint -->
 <h3 class="fn"><a name="setPort"></a><span class="type">void</span> QUrl::<span class="name">setPort</span> ( <span class="type">int</span> <i>port</i> )</h3>
@@ -914,17 +914,17 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$qHash$$$qHashconstQUrl& -->
-<h3 class="fn"><a name="qHash-26"></a><span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> <span class="name">qHash</span> ( const <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
+<h3 class="fn"><a name="qHash-13"></a><span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> <span class="name">qHash</span> ( const <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
 <p>Computes a hash key from the normalized version of <i>url</i>.</p>
 <p>This function was introduced in Qt 4.7.</p>
 <!-- @@@qHash -->
 <!-- $$$operator<<$$$operator<<QDataStream&constQUrl& -->
-<h3 class="fn"><a name="operator-lt-lt-161"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-88"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
 <p>Writes url <i>url</i> to the stream <i>out</i> and returns a reference to the stream.</p>
 <p><b>See also </b><a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QUrl& -->
-<h3 class="fn"><a name="operator-gt-gt-85"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-55"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QUrl</span> &amp; <i>url</i> )</h3>
 <p>Reads a url into <i>url</i> from the stream <i>in</i> and returns a reference to the stream.</p>
 <p><b>See also </b><a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator>> -->
@@ -952,8 +952,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -965,7 +965,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

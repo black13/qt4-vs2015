@@ -198,7 +198,7 @@
 <p>See <a href="http://qt.gitorious.org/qt/pages/QtCreatorSymbianLinux">http://qt.gitorious.org/qt/pages/QtCreatorSymbianLinux</a> for more details.</p>
 <a name="step-2-unpack-the-archive"></a>
 <h2>Step 2: Unpack the Archive</h2>
-<p>Uncompress the <a href="http://qt.nokia.com/downloads">downloaded</a> source package into the directory you want Qt installed, e.g&#x2e; <tt>/home/user/qt/4.8&#x2e;6</tt>.</p>
+<p>Uncompress the <a href="http://qt.nokia.com/downloads">downloaded</a> source package into the directory you want Qt installed, e.g&#x2e; <tt>/home/user/qt/4.8&#x2e;7</tt>.</p>
 <a name="step-3-set-the-environment-variables"></a>
 <h2>Step 3: Set the Environment Variables</h2>
 <p>In order to build and use Qt, the <tt>PATH</tt> environment variable needs to be extended to fine Qt tools and also to find the Symbian platform tools:</p>
@@ -206,15 +206,15 @@
 <pre class="cpp"> EPOCROOT=/home/user/s60-sdk/
  export EPOCROOT</pre>
 <p>Then you can update the PATH variable;</p>
-<pre class="cpp"> PATH=/home/user/qt/4.8.6/bin:$EPOCROOT/epoc32/tools:$PATH
+<pre class="cpp"> PATH=/home/user/qt/4.8.7/bin:$EPOCROOT/epoc32/tools:$PATH
  export PATH</pre>
 <a name="step-4-configure-qt"></a>
 <h2>Step 4: Configure Qt</h2>
 <p>To configure Qt for the Symbian platform, do:</p>
-<pre class="cpp"> cd /home/user/qt/4.8.6
+<pre class="cpp"> cd /home/user/qt/4.8.7
  ./configure -platform linux-g++ -xplatform symbian-armcc</pre>
 <p>to build the libraries using RVCT or</p>
-<pre class="cpp"> cd /home/user/qt/4.8.6
+<pre class="cpp"> cd /home/user/qt/4.8.7
  ./configure -platform linux-g++ -xplatform symbian-gcce -no-webkit</pre>
 <p>to build the libraries using GCCE.</p>
 <p>Type <tt>./configure -help</tt> to get a list of all available options. The <a href="configure-options.html">Configuration Options for Qt</a> page gives a brief overview of these.</p>
@@ -321,8 +321,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -334,7 +334,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

@@ -212,7 +212,7 @@
 <p>The cache associates a pixmap with a user-provided string as a key, or with a <a href="qpixmapcache-key.html">QPixmapCache::Key</a> that the cache generates. Using <a href="qpixmapcache-key.html">QPixmapCache::Key</a> for keys is faster than using strings. The string API is very convenient for complex keys but the <a href="qpixmapcache-key.html">QPixmapCache::Key</a> API will be very efficient and convenient for a one-to-one object-to-pixmap mapping &mdash; in this case, you can store the keys as members of an object.</p>
 <p>If two pixmaps are inserted into the cache using equal keys then the last pixmap will replace the first pixmap in the cache. This follows the behavior of the <a href="qhash.html">QHash</a> and <a href="qcache.html">QCache</a> classes.</p>
 <p>The cache becomes full when the total size of all pixmaps in the cache exceeds <a href="qpixmapcache.html#cacheLimit">cacheLimit</a>(). The initial cache limit is 2048 KB (2 MB) on embedded platforms, 10240 KB (10 MB) on desktop platforms; you can change this by calling <a href="qpixmapcache.html#setCacheLimit">setCacheLimit</a>() with the required value. A pixmap takes roughly (<i>width</i> * <i>height</i> * <i>depth</i>)/8 bytes of memory.</p>
-<p>The <i>Qt Quarterly</i> article <a href="http://qt.nokia.com/doc/qq/qq12-qpixmapcache.html">Optimizing with QPixmapCache</a> explains how to use QPixmapCache to speed up applications by caching the results of painting.</p>
+<p>The <i>Qt Quarterly</i> article <a href="http://doc.qt.digia.com/qq/qq12-qpixmapcache.html">Optimizing with QPixmapCache</a> explains how to use QPixmapCache to speed up applications by caching the results of painting.</p>
 </div>
 <p><b>See also </b><a href="qcache.html">QCache</a> and <a href="qpixmap.html">QPixmap</a>.</p>
 <!-- @@@QPixmapCache -->
@@ -293,8 +293,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -306,7 +306,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

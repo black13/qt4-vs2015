@@ -192,13 +192,13 @@
 <p>For the open source version you do not need a license file.</p>
 <a name="step-2-unpack-the-archive"></a>
 <h2>Step 2: Unpack the Archive</h2>
-<p>Uncompress the files into the directory you want Qt installed; e.g&#x2e; <tt>C:\Qt\4.8&#x2e;6</tt>.</p>
+<p>Uncompress the files into the directory you want Qt installed; e.g&#x2e; <tt>C:\Qt\4.8&#x2e;7</tt>.</p>
 <p><b>Note:</b> The install path must not contain any spaces or Windows specific file system characters.</p>
 <a name="step-3-set-the-environment-variables"></a>
 <h2>Step 3: Set the Environment variables</h2>
 <p>In order to build and use Qt, the <tt>PATH</tt> environment variable needs to be extended:</p>
 <pre class="cpp"> PATH               - to locate qmake, moc and other Qt tools</pre>
-<p>This is done by adding <tt>c:\Qt\4.8&#x2e;6\bin</tt> to the <tt>PATH</tt> variable.</p>
+<p>This is done by adding <tt>c:\Qt\4.8&#x2e;7\bin</tt> to the <tt>PATH</tt> variable.</p>
 <p>For newer versions of Windows, <tt>PATH</tt> can be extended through the <b>Control Panel|System|Advanced|Environment variables</b> menu.</p>
 <p>You may also need to ensure that the locations of your compiler and other build tools are listed in the <tt>PATH</tt> variable. This will depend on your choice of software development environment.</p>
 <p><b>Note:</b> If you don't use the configured shells, which is available in the application menu, in the <a href="opensourceedition.html">Open Source Versions of Qt</a>, <tt>configure</tt> requires that <tt>sh.exe</tt> is not in the path or that it is run from <tt>msys</tt>. This also goes for mingw32-make.</p>
@@ -206,7 +206,7 @@
 <h2>Step 4: Build the Qt Library</h2>
 <p>To configure the Qt library for your machine, type the following command in a <b>Visual Studio</b> command prompt:</p>
 <pre class="cpp"> C:
- cd /D C:\Qt\4.8.6
+ cd /D C:\Qt\4.8.7
  configure</pre>
 <p>Type <tt>configure -help</tt> to get a list of all available options. The <a href="configure-options.html">Configuration Options for Qt</a> page gives a brief overview of these.</p>
 <p>If you have multiple compilers installed, and want to build the Qt library using a specific compiler, you must specify a <tt>qmake</tt> specification. This is done by pasing <tt>-platform &lt;spec&gt;</tt> to configure; for example:</p>
@@ -223,7 +223,7 @@
 <ul>
 <li><a href="how-to-learn-qt.html">How to Learn Qt</a></li>
 <li><a href="tutorials.html">Tutorials</a></li>
-<li><a href="http://qt-project.org">Developer Network</a></li>
+<li><a href="http://www.qt.io/developers/">Developer Network</a></li>
 <li><a href="deployment.html">Deploying Qt Applications</a></li>
 </ul>
 <p>We hope you will enjoy using Qt. Good luck!</p>
@@ -241,8 +241,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -254,7 +254,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

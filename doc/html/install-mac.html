@@ -190,16 +190,16 @@
 <h2>Step 1: Install the License File (commercial editions only)</h2>
 <p>If you have the commercial edition of Qt, install your license file as <tt>$HOME/.qt-license</tt>.</p>
 <p>For the open source version you do not need a license file.</p>
-<p>Unpack the archive if you have not done so already. For example, if you have the <tt>qt-everywhere-opensource-src-4.8&#x2e;6&#x2e;tar.gz</tt> package, type the following commands at a command line prompt:</p>
+<p>Unpack the archive if you have not done so already. For example, if you have the <tt>qt-everywhere-opensource-src-4.8&#x2e;7&#x2e;tar.gz</tt> package, type the following commands at a command line prompt:</p>
 <pre class="cpp"> cd /tmp
- gunzip qt-everywhere-opensource-src-4.8.6.tar.gz        # uncompress the archive
- tar xvf qt-everywhere-opensource-src-4.8.6.tar          # unpack it</pre>
-<p>This creates the directory <tt>/tmp/qt-everywhere-opensource-src-4.8&#x2e;6</tt> containing the files from the archive.</p>
+ gunzip qt-everywhere-opensource-src-4.8.7.tar.gz        # uncompress the archive
+ tar xvf qt-everywhere-opensource-src-4.8.7.tar          # unpack it</pre>
+<p>This creates the directory <tt>/tmp/qt-everywhere-opensource-src-4.8&#x2e;7</tt> containing the files from the archive.</p>
 <a name="step-2-build-the-qt-library"></a>
 <h2>Step 2: Build the Qt Library</h2>
 <p>To configure the Qt library for your machine type, run the <tt>./configure</tt> script in the package directory.</p>
-<p>By default, Qt is configured for installation in the <tt>/usr/local/Trolltech/Qt-4.8&#x2e;6</tt> directory, but this can be changed by using the <tt>-prefix</tt> option.</p>
-<pre class="cpp"> cd /tmp/qt-everywhere-opensource-src-4.8.6
+<p>By default, Qt is configured for installation in the <tt>/usr/local/Trolltech/Qt-4.8&#x2e;7</tt> directory, but this can be changed by using the <tt>-prefix</tt> option.</p>
+<pre class="cpp"> cd /tmp/qt-everywhere-opensource-src-4.8.7
  ./configure</pre>
 <p>Type <tt>./configure -help</tt> to get a list of all available options.</p>
 <p>Note that you will need to specify <tt>-universal</tt> if you want to build universal binaries, and also supply a path to the <tt>-sdk</tt> option if your development machine has a PowerPC CPU. By default, Qt is built as a framework, but you can built it as a set of dynamic libraries (dylibs) by specifying the <tt>-no-framework</tt> option.</p>
@@ -217,10 +217,10 @@
 <pre class="cpp"> PATH               - to locate qmake, moc and other Qt tools</pre>
 <p>This is done like this:</p>
 <p>In <tt>.profile</tt> (if your shell is bash), add the following lines:</p>
-<pre class="cpp"> PATH=/usr/local/Trolltech/Qt-4.8.6/bin:$PATH
+<pre class="cpp"> PATH=/usr/local/Trolltech/Qt-4.8.7/bin:$PATH
  export PATH</pre>
 <p>In <tt>.login</tt> (in case your shell is csh or tcsh), add the following line:</p>
-<pre class="cpp"> setenv PATH /usr/local/Trolltech/Qt-4.8.6/bin:$PATH</pre>
+<pre class="cpp"> setenv PATH /usr/local/Trolltech/Qt-4.8.7/bin:$PATH</pre>
 <p>If you use a different shell, please modify your environment variables accordingly.</p>
 <p><b>That's all. Qt is now installed.</b></p>
 <a name="qt-demos-and-examples"></a>
@@ -230,7 +230,7 @@
 <ul>
 <li><a href="how-to-learn-qt.html">How to Learn Qt</a></li>
 <li><a href="tutorials.html">Tutorials</a></li>
-<li><a href="http://qt-project.org">Developer Network</a></li>
+<li><a href="http://www.qt.io/developers/">Developer Network</a></li>
 <li><a href="deployment.html">Deploying Qt Applications</a></li>
 </ul>
 <p>We hope you will enjoy using Qt. Good luck!</p>
@@ -248,8 +248,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -261,7 +261,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

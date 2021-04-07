@@ -1,0 +1,25 @@
+--- src/3rdparty/clucene/src/CLucene/util/VoidMap.h	2015-05-07 16:14:48.000000000 +1000
++++ src/3rdparty/clucene/src/CLucene/util/VoidMap.h	2016-03-23 10:07:30.676025400 +1100
+@@ -222,12 +222,22 @@
+ 	typename _KeyDeletor=CL_NS(util)::Deletor::Dummy,
+ 	typename _ValueDeletor=CL_NS(util)::Deletor::Dummy>
+ class CLSet:public __CLMap<_kt,_vt,
++#if (defined(_MSC_VER) && (_MSC_VER >= 1900))
++	CL_NS_STD(map)<_kt,_vt>,
++#else
+ 	CL_NS_STD(map)<_kt,_vt, _Compare>,
++#endif
+ 	_KeyDeletor,_ValueDeletor>
+ {
++#if (defined(_MSC_VER) && (_MSC_VER >= 1900))
++	typedef typename CL_NS_STD(map)<_kt,_vt> _base;
++	typedef __CLMap<_kt, _vt, CL_NS_STD(map)<_kt,_vt>,
++		_KeyDeletor,_ValueDeletor> _this;
++#else
+ 	typedef typename CL_NS_STD(map)<_kt,_vt,_Compare> _base;
+ 	typedef __CLMap<_kt, _vt, CL_NS_STD(map)<_kt,_vt, _Compare>,
+ 		_KeyDeletor,_ValueDeletor> _this;
++#endif
+ public:
+ 	CLSet ( const bool deleteKey=false, const bool deleteValue=false )
+ 	{

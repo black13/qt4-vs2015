@@ -337,7 +337,7 @@
 <p>If you add a custom path using QApplication::addLibraryPath it could look like this:</p>
 <pre class="cpp"> qApp-&gt;addLibraryPath(&quot;C:/customPath/plugins&quot;);</pre>
 <p>Then <a href="qapplication.html#qApp">qApp</a>-&gt;libraryPaths() would return something like this:</p>
-<p>&quot;C:/customPath/plugins &quot; &quot;C:/Qt/4.8&#x2e;6/plugins&quot; &quot;E:/myApplication/directory/&quot;</p>
+<p>&quot;C:/customPath/plugins &quot; &quot;C:/Qt/4.8&#x2e;7/plugins&quot; &quot;E:/myApplication/directory/&quot;</p>
 <p>The executable will look for the plugins in these directories and the same order as the <a href="qstringlist.html">QStringList</a> returned by <a href="qapplication.html#qApp">qApp</a>-&gt;libraryPaths(). The newly added path is prepended to the <a href="qapplication.html#qApp">qApp</a>-&gt;libraryPaths() which means that it will be searched through first. However, if you use <a href="qapplication.html#qApp">qApp</a>-&gt;setLibraryPaths(), you will be able to determend which paths and in which order they will be searched.</p>
 <p>The <a href="plugins-howto.html">How to Create Qt Plugins</a> document outlines the issues you need to pay attention to when building and deploying plugins for Qt applications.</p>
 <a name="related-third-party-resources"></a>
@@ -359,8 +359,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -372,7 +372,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

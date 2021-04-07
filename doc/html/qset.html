@@ -259,8 +259,8 @@
 <a name="related-non-members"></a>
 <h2>Related Non-Members</h2>
 <table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qset.html#operator-lt-lt-205">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QSet&lt;T&gt; &amp; <i>set</i> )</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qset.html#operator-gt-gt-111">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QSet&lt;T&gt; &amp; <i>set</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qset.html#operator-lt-lt-75">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>out</i>, const QSet&lt;T&gt; &amp; <i>set</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qset.html#operator-gt-gt-47">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>in</i>, QSet&lt;T&gt; &amp; <i>set</i> )</td></tr>
 </table>
 <a name="details"></a>
 <!-- $$$QSet-description -->
@@ -296,7 +296,7 @@
  <a href="qtglobal.html#foreach">foreach</a> (<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>value<span class="operator">,</span> set)
      <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> value;</pre>
 <p>Items can be removed from the set using <a href="qset.html#remove">remove</a>(). There is also a <a href="qset.html#clear">clear</a>() function that removes all items.</p>
-<p>QSet's value data type must be an <a href="containers.html#assignable-data-type">assignable data type</a>. You cannot, for example, store a <a href="qwidget.html">QWidget</a> as a value; instead, store a <a href="qwidget.html">QWidget</a> *. In addition, the type must provide <tt>operator==()</tt>, and there must also be a global <a href="qhash.html#qHash">qHash</a>() function that returns a hash value for an argument of the key's type. See the <a href="qhash.html">QHash</a> documentation for a list of types supported by <a href="qhash.html#qHash">qHash</a>().</p>
+<p>QSet's value data type must be an <a href="containers.html#assignable-data-type">assignable data type</a>. You cannot, for example, store a <a href="qwidget.html">QWidget</a> as a value; instead, store a <a href="qwidget.html">QWidget</a> *. In addition, the type must provide <tt>operator==()</tt>, and there must also be a global <a href="qsourcelocation.html#qHash">qHash</a>() function that returns a hash value for an argument of the key's type. See the <a href="qhash.html">QHash</a> documentation for a list of types supported by <a href="qsourcelocation.html#qHash">qHash</a>().</p>
 <p>Internally, QSet uses a hash table to perform lookups. The hash table automatically grows and shrinks to provide fast lookups without wasting memory. You can still control the size of the hash table by calling <a href="qset.html#reserve">reserve</a>(), if you already know approximately how many elements the QSet will contain, but this isn't necessary to obtain good performance. You can also call <a href="qset.html#capacity">capacity</a>() to retrieve the hash table's size.</p>
 </div>
 <p><b>See also </b><a href="qsetiterator.html">QSetIterator</a>, <a href="qmutablesetiterator.html">QMutableSetIterator</a>, <a href="qhash.html">QHash</a>, and <a href="qmap.html">QMap</a>.</p>
@@ -620,13 +620,13 @@
 <div class="relnonmem">
 <h2>Related Non-Members</h2>
 <!-- $$$operator<<$$$operator<<QDataStream&constQSet<T>& -->
-<h3 class="fn"><a name="operator-lt-lt-205"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QSet</span>&lt;<span class="type">T</span>&gt; &amp; <i>set</i> )</h3>
+<h3 class="fn"><a name="operator-lt-lt-75"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&lt;&lt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>out</i>, const <span class="type">QSet</span>&lt;<span class="type">T</span>&gt; &amp; <i>set</i> )</h3>
 <p>Writes the <i>set</i> to stream <i>out</i>.</p>
 <p>This function requires the value type to implement <tt>operator&lt;&lt;()</tt>.</p>
 <p><b>See also </b><a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>$$$operator>>QDataStream&QSet<T>& -->
-<h3 class="fn"><a name="operator-gt-gt-111"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QSet</span>&lt;<span class="type">T</span>&gt; &amp; <i>set</i> )</h3>
+<h3 class="fn"><a name="operator-gt-gt-47"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <span class="name">operator&gt;&gt;</span> ( <span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp; <i>in</i>, <span class="type">QSet</span>&lt;<span class="type">T</span>&gt; &amp; <i>set</i> )</h3>
 <p>Reads a set from stream <i>in</i> into <i>set</i>.</p>
 <p>This function requires the value type to implement <tt>operator&gt;&gt;()</tt>.</p>
 <p><b>See also </b><a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
@@ -641,8 +641,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -654,7 +654,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

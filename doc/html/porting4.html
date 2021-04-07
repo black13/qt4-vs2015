@@ -383,7 +383,7 @@
 <p>At some point, you might want to stop linking against the Qt 3 support library (<a href="qt3support.html">Qt3Support</a>) and take advantage of Qt 4's new features. The instructions below explain how to do that for each compatibility class.</p>
 <p>In addition to the <a href="qt3support.html">Qt3Support</a> classes (such as <tt>Q3Action</tt>, <tt>Q3ListBox</tt>, and <tt>Q3ValueList</tt>), Qt 4 provides compatibility functions when it's possible for an old API to cohabit with the new one. For example, <a href="qstring.html">QString</a> provides a <a href="qstring-qt3.html#simplifyWhiteSpace" class="compat">QString::simplifyWhiteSpace</a>() compatibility function that's implemented inline and that simply calls <a href="qstring.html#simplified">QString::simplified</a>(). <b>The compatibility functions are not documented here; instead, they are documented for each class.</b></p>
 <p>If you have the line <tt>QT += qt3support</tt> in your <tt>.pro</tt> file, <tt>qmake</tt> will automatically define the <tt>QT3_SUPPORT</tt> symbol, turning on compatibility function support. You can also define the symbol manually (e.g&#x2e;, if you don't want to link against the <tt>Qt3Support</tt> library), or you can define <tt>QT3_SUPPORT_WARNINGS</tt> instead, telling the compiler to emit a warning when a compatibility function is called. (This works only with GCC 3.2+ and MSVC 7.)</p>
-<p>If you get stuck, ask on the <a href="http://qt.nokia.com/lists/qt-interest/">qt-interest</a> mailing list. If you are a licensed customer, you can also contact Qt's technical support team.</p>
+<p>If you get stuck, ask on the <a href="http://lists.qt-project.org/mailman/listinfo/interest">qt-interest</a> mailing list. If you are a licensed customer, you can also contact Qt's technical support team.</p>
 <p>Table of contents:</p>
 <a name="casting-and-object-types"></a>
 <h2>Casting and Object Types</h2>
@@ -789,7 +789,7 @@
 </table>
 <a name="explicit-sharing"></a>
 <h2>Explicit Sharing</h2>
-<p>Qt 4 is the first version of Qt that contains no <a href="http://doc.qt.nokia.com/3.3/shclass.html">explicitly shared</a> classes. All classes that were explicitly shared in Qt 3 are <i>implicitly</i> shared in Qt 4:</p>
+<p>Qt 4 is the first version of Qt that contains no <a href="http://doc.qt.digia.com/3.3/shclass.html">explicitly shared</a> classes. All classes that were explicitly shared in Qt 3 are <i>implicitly</i> shared in Qt 4:</p>
 <ul>
 <li><a href="qimage.html">QImage</a></li>
 <li><a href="qbitarray.html">QBitArray</a></li>
@@ -900,7 +900,7 @@
 <a name="qasyncio"></a>
 <h2>QAsyncIO</h2>
 <p>The <tt>QAsyncIO</tt> class was used internally in Qt 2.x in conjunction with QImageConsumer. It was obsoleted in Qt 3.0&#x2e;</p>
-<p>If you use this mechanism in your application, please submit a report to the <a href="http://bugreports.qt-project.org">Task Tracker</a> on the Qt website and we will try to find a satisfactory substitute.</p>
+<p>If you use this mechanism in your application, please submit a report to the <a href="http://bugreports.qt.io/">Task Tracker</a> on the Qt website and we will try to find a satisfactory substitute.</p>
 <a name="qbackinsertiterator"></a>
 <h2>QBackInsertIterator</h2>
 <p>The undocumented <tt>QBackInsertIterator</tt> class has been removed from the Qt library. If you need it in your application, feel free to copy the source code from the Qt 3 <tt>&lt;qtl.h&gt;</tt> header file.</p>
@@ -1069,7 +1069,7 @@
 <p>See <a href="porting4-virtual-functions.html">Virtual Functions</a> for a list of <a href="qcombobox.html">QComboBox</a> virtual member functions in Qt 3 that are no longer virtual in Qt 4.</p>
 <a name="qcstring"></a>
 <h2>QCString</h2>
-<p>In Qt 3, <a href="#qcstring">QCString</a> inherited from <a href="qbytearray.html">QByteArray</a>. The main drawback of this approach is that the user had the responsibility of ensuring that the string is '\0'-terminated. Another important issue was that conversions between <tt>QCString</tt> and <a href="qbytearray.html">QByteArray</a> often gave confusing results. (See the <a href="http://doc.qt.nokia.com/qq/qq05-achtung.html#qcstringisastringofchars">Achtung! Binary and Character Data</a> article in <i>Qt Quarterly</i> for an overview of the pitfalls.)</p>
+<p>In Qt 3, <a href="#qcstring">QCString</a> inherited from <a href="qbytearray.html">QByteArray</a>. The main drawback of this approach is that the user had the responsibility of ensuring that the string is '\0'-terminated. Another important issue was that conversions between <tt>QCString</tt> and <a href="qbytearray.html">QByteArray</a> often gave confusing results. (See the <a href="http://doc.qt.digia.com/qq/qq05-achtung.html#qcstringisastringofchars">Achtung! Binary and Character Data</a> article in <i>Qt Quarterly</i> for an overview of the pitfalls.)</p>
 <p>Qt 4 solves that problem by merging the <a href="qbytearray.html">QByteArray</a> and <tt>QCString</tt> classes into one class called <a href="qbytearray.html">QByteArray</a>. Most functions that were in <tt>QCString</tt> previously have been moved to <a href="qbytearray.html">QByteArray</a>. The '\0' issue is handled by having <a href="qbytearray.html">QByteArray</a> allocate one extra byte that it always sets to '\0'. For example:</p>
 <pre class="cpp"> <span class="type"><a href="qbytearray.html">QByteArray</a></span> ba(<span class="string">&quot;Hello&quot;</span>);
  ba<span class="operator">.</span>size();             <span class="comment">// returns 5 (the '\0' is not counted)</span>
@@ -1148,14 +1148,14 @@
 <a name="qdatapump"></a>
 <h2>QDataPump</h2>
 <p>The <tt>QDataPump</tt> class was used internally in Qt 2.x in conjunction with QImageConsumer. It was obsoleted in Qt 3.0&#x2e;</p>
-<p>If you use this mechanism in your application, please submit a report to the <a href="http://bugreports.qt-project.org">Task Tracker</a> on the Qt website and we will try to find a satisfactory substitute.</p>
+<p>If you use this mechanism in your application, please submit a report to the <a href="http://bugreports.qt.io/">Task Tracker</a> on the Qt website and we will try to find a satisfactory substitute.</p>
 <a name="qdatasink"></a>
 <h2>QDataSink</h2>
 <p>The <tt>QDataSink</tt> class was used internally in Qt 2.x in conjunction with QImageConsumer. It was obsoleted in Qt 3.0&#x2e;</p>
-<p>If you use this mechanism in your application, please submit a report to the <a href="http://bugreports.qt-project.org">Task Tracker</a> on the Qt website and we will try to find a satisfactory substitute.</p>
+<p>If you use this mechanism in your application, please submit a report to the <a href="http://bugreports.qt.io/">Task Tracker</a> on the Qt website and we will try to find a satisfactory substitute.</p>
 <a name="qdatasource"></a>
 <h2>QDataSource</h2>
-<p>The <tt>QDataSource</tt> class was used internally in Qt 2.x in conjunction with QImageConsumer. It was obsoleted in Qt 3.0&#x2e; If you use this mechanism in your application, please submit a report to the <a href="http://bugreports.qt-project.org">Task Tracker</a> on the Qt website and we will try to find a satisfactory substitute.</p>
+<p>The <tt>QDataSource</tt> class was used internally in Qt 2.x in conjunction with QImageConsumer. It was obsoleted in Qt 3.0&#x2e; If you use this mechanism in your application, please submit a report to the <a href="http://bugreports.qt.io/">Task Tracker</a> on the Qt website and we will try to find a satisfactory substitute.</p>
 <a name="qdatatable"></a>
 <h2>QDataTable</h2>
 <p>The <tt>QDataTable</tt> class has been renamed <a href="q3datatable.html" class="compat">Q3DataTable</a> and moved to the <a href="qt3support.html">Qt3Support</a> library. In Qt 4.2, you should use the <a href="qdatawidgetmapper.html">QDataWidgetMapper</a> class to create data-aware forms.</p>
@@ -1630,7 +1630,7 @@
 </table>
 <a name="qiodevicesource"></a>
 <h2>QIODeviceSource</h2>
-<p>The <a href="#qiodevicesource">QIODeviceSource</a> class was used internally in Qt 2.x in conjunction with QImageConsumer. It was obsoleted in Qt 3.0&#x2e; If you use this mechanism in your application, please submit a report to the <a href="http://bugreports.qt-project.org">Task Tracker</a> on the Qt website and we will try to find a satisfactory substitute.</p>
+<p>The <a href="#qiodevicesource">QIODeviceSource</a> class was used internally in Qt 2.x in conjunction with QImageConsumer. It was obsoleted in Qt 3.0&#x2e; If you use this mechanism in your application, please submit a report to the <a href="http://bugreports.qt.io/">Task Tracker</a> on the Qt website and we will try to find a satisfactory substitute.</p>
 <a name="qlabel"></a>
 <h2>QLabel</h2>
 <p><a href="qlabel.html">QLabel</a> doesn't enable word-wrap automatically anymore when rich text is used. You can enable it by calling <a href="qlabel.html#wordWrap-prop">QLabel::setWordWrap</a>() or by setting the <a href="qlabel.html#wordWrap-prop">wordWrap</a> property. The reason for this change is that the old behavior was confusing to many users.</p>
@@ -1795,8 +1795,8 @@
 <h2>QPainter</h2>
 <p>The <a href="qpainter.html">QPainter</a> class has undergone some changes in Qt 4 because of the way rectangles are drawn. In Qt 4, the result of drawing a <a href="qrect.html">QRect</a> with a pen width of 1 pixel is 1 pixel wider and 1 pixel taller than in Qt 3.</p>
 <p>For compatibility, we provide a <a href="q3painter.html" class="compat">Q3Painter</a> class in <a href="qt3support.html">Qt3Support</a> that provides the old semantics. See the <a href="q3painter.html" class="compat">Q3Painter</a> documentation for details and for the reasons why we had to make this change.</p>
-<p>The <a href="http://doc.qt.nokia.com/3.3/qpainter.html#CoordinateMode-enum">QPainter::CoordinateMode</a> enum has been removed in Qt 4. All clipping operations are now defined using logical coordinates and are subject to transformation operations.</p>
-<p>The <a href="http://doc.qt.nokia.com/3.3/qpainter.html#RasterOP-enum">QPainter::RasterOP</a> enum has been replaced with <a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode</a>.</p>
+<p>The <a href="http://doc.qt.digia.com/3.3/qpainter.html#CoordinateMode-enum">QPainter::CoordinateMode</a> enum has been removed in Qt 4. All clipping operations are now defined using logical coordinates and are subject to transformation operations.</p>
+<p>The <a href="http://doc.qt.digia.com/3.3/qpainter.html#RasterOP-enum">QPainter::RasterOP</a> enum has been replaced with <a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode</a>.</p>
 <a name="qpicture"></a>
 <h2>QPicture</h2>
 <p>In Qt 3, a <a href="qpicture.html">QPicture</a> could be saved in the SVG file format. In Qt 4, the SVG support is provided by the <a href="qtsvg.html">QtSvg</a> module, which includes classes for <i>displaying</i> the contents of SVG files.</p>
@@ -2256,7 +2256,7 @@
 <h2>QSocketDevice</h2>
 <p>The <tt>QSocketDevice</tt> class has been renamed <a href="q3socketdevice.html" class="compat">Q3SocketDevice</a> and moved to the <a href="qt3support.html">Qt3Support</a> library. In Qt 4, there is no direct equivalent to <a href="q3socketdevice.html" class="compat">Q3SocketDevice</a>:</p>
 <ul>
-<li>If you use <a href="q3socketdevice.html" class="compat">Q3SocketDevice</a> in a thread to perform blocking network I/O (a technique encouraged by the <i>Qt Quarterly</i> article <a href="http://doc.qt.nokia.com/qq/qq09-networkthread.html">Unblocking Networking</a>), you can now use <a href="qtcpsocket.html">QTcpSocket</a>, <a href="qftp.html">QFtp</a>, or <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>, which can be used from non-GUI threads.</li>
+<li>If you use <a href="q3socketdevice.html" class="compat">Q3SocketDevice</a> in a thread to perform blocking network I/O (a technique encouraged by the <i>Qt Quarterly</i> article <a href="http://doc.qt.digia.com/qq/qq09-networkthread.html">Unblocking Networking</a>), you can now use <a href="qtcpsocket.html">QTcpSocket</a>, <a href="qftp.html">QFtp</a>, or <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>, which can be used from non-GUI threads.</li>
 <li>If you use <a href="q3socketdevice.html" class="compat">Q3SocketDevice</a> for UDP, you can now use <a href="qudpsocket.html">QUdpSocket</a> instead.</li>
 <li>If you use <a href="q3socketdevice.html" class="compat">Q3SocketDevice</a> for other uses, Qt 4 offers no alternative right now. However, there is a <tt>QAbstractSocketEngine</tt> internal class that offers a low-level socket API similar to <a href="q3socketdevice.html" class="compat">Q3SocketDevice</a>. Should the need for such functionality arise in Qt 4 applications, we will consider making this class public in a future release.</li>
 </ul>
@@ -2532,7 +2532,7 @@
 <ul>
 <li>Q3Url::Q3Url(const <a href="q3url.html" class="compat">Q3Url</a> &amp;, const <a href="qstring.html">QString</a> &amp;, bool) can be simulated by combining the URLs manually (using QString::operator+(), for example).</li>
 <li>Q3Url::setEncodedPathAndQuery(const <a href="qstring.html">QString</a> &amp;) is replaced by <a href="qurl.html#setPath">QUrl::setPath</a>() and <a href="qurl.html#setEncodedQuery">QUrl::setEncodedQuery</a>().</li>
-<li><a href="q3url.html#encodedPathAndQuery">Q3Url::encodedPathAndQuery</a>() is replaced by <a href="qurl.html#pathx">QUrl::path</a>() and <a href="qurl.html#encodedQuery">QUrl::encodedQuery</a>().</li>
+<li><a href="q3url.html#encodedPathAndQuery">Q3Url::encodedPathAndQuery</a>() is replaced by <a href="qurl.html#path">QUrl::path</a>() and <a href="qurl.html#encodedQuery">QUrl::encodedQuery</a>().</li>
 <li><a href="q3url.html#isLocalFile">Q3Url::isLocalFile</a>() can be simulated by checking that <a href="qurl-qt3.html#protocol" class="compat">QUrl::protocol</a>() is &quot;file&quot;.</li>
 <li>Q3Url::toString(bool, bool) is replaced by QUrl::toString(int), where the <tt>int</tt> parameter specifies a combination of <a href="qurl.html#FormattingOption-enum">formatting options</a>.</li>
 </ul>
@@ -2656,7 +2656,7 @@
 <li><a href="qwidget-qt3.html#BackgroundOrigin-enum" class="compat">QWidget::BackgroundOrigin</a> backgroundOrigin() const</li>
 <li><a href="qwidget-qt3.html#backgroundOffset" class="compat">QWidget::backgroundOffset</a>()</li>
 </ul>
-<p>Sample code on how to do obtain similar behavior from Qt 4, previously handled by some of the above functions can be found in the <a href="http://doc.qt.nokia.com/qwidget-qt3.html">Qt 3 Support Members for QWidget</a> page.</p>
+<p>Sample code on how to do obtain similar behavior from Qt 4, previously handled by some of the above functions can be found in the <a href="http://doc.qt.digia.com/4.0/qwidget-qt3.html">Qt 3 Support Members for QWidget</a> page.</p>
 <p>A widget now receives change events in its <a href="qwidget.html#changeEvent">QWidget::changeEvent</a>() handler. This makes the following virtual change handlers obsolete:</p>
 <ul>
 <li>QWidget::styleChange - use <a href="qevent.html#Type-enum">QEvent::StyleChange</a></li>
@@ -2740,7 +2740,7 @@
 </ul>
 <p>The internal clearWState() function was removed. Use <a href="qwidget.html#setAttribute">QWidget::setAttribute</a>() instead.</p>
 <p>setWFlags() was renamed <a href="qwidget.html#windowFlags-prop">QWidget::setWindowFlags</a>().</p>
-<p>clearWFlags() has no direct replacement. You can use <a href="qwidget.html#setAttribute">QWidget::setAttribute</a>() instead. For example, <tt>setAttribute(..&#x2e;, false)</tt> to clear an attribute. More information is available <a href="http://doc.qt.nokia.com/qwidget.html#setAttribute">here</a>.</p>
+<p>clearWFlags() has no direct replacement. You can use <a href="qwidget.html#setAttribute">QWidget::setAttribute</a>() instead. For example, <tt>setAttribute(..&#x2e;, false)</tt> to clear an attribute. More information is available <a href="http://doc.qt.io/qt-4.8/qwidget.html#setAttribute">here</a>.</p>
 <p>testWFlags() was renamed to <a href="qwidget.html#testAttribute">testAttribute()</a>.</p>
 <p>See <a href="#properties">Properties</a> for a list of <a href="qwidget.html">QWidget</a> properties in Qt 3 that have changed in Qt 4.</p>
 <a name="qwidgetfactory"></a>
@@ -2779,8 +2779,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -2792,7 +2792,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

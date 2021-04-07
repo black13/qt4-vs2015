@@ -190,7 +190,7 @@
 <p>Most events types have special classes, notably <a href="qresizeevent.html">QResizeEvent</a>, <a href="qpaintevent.html">QPaintEvent</a>, <a href="qmouseevent.html">QMouseEvent</a>, <a href="qkeyevent.html">QKeyEvent</a>, and <a href="qcloseevent.html">QCloseEvent</a>. Each class subclasses <a href="qevent.html">QEvent</a> and adds event-specific functions. For example, <a href="qresizeevent.html">QResizeEvent</a> adds <a href="qresizeevent.html#size">size()</a> and <a href="qresizeevent.html#oldSize">oldSize()</a> to enable widgets to discover how their dimensions have been changed.</p>
 <p>Some classes support more than one actual event type. <a href="qmouseevent.html">QMouseEvent</a> supports mouse button presses, double-clicks, moves, and other related operations.</p>
 <p>Each event has an associated type, defined in <a href="qevent.html#Type-enum">QEvent::Type</a>, and this can be used as a convenient source of run-time type information to quickly determine which subclass a given event object was constructed from.</p>
-<p>Since programs need to react in varied and complex ways, Qt's event delivery mechanisms are flexible. The documentation for <a href="qcoreapplication.html#notify">QCoreApplication::notify</a>() concisely tells the whole story; the <i>Qt Quarterly</i> article <a href="http://doc.qt.nokia.com/qq/qq11-events.html">Another Look at Events</a> rehashes it less concisely. Here we will explain enough for 95% of applications.</p>
+<p>Since programs need to react in varied and complex ways, Qt's event delivery mechanisms are flexible. The documentation for <a href="qcoreapplication.html#notify">QCoreApplication::notify</a>() concisely tells the whole story; the <i>Qt Quarterly</i> article <a href="http://doc.qt.digia.com/qq/qq11-events.html">Another Look at Events</a> rehashes it less concisely. Here we will explain enough for 95% of applications.</p>
 <a name="event-handlers"></a>
 <h2>Event Handlers</h2>
 <p>The normal way for an event to be delivered is by calling a virtual function. For example, <a href="qpaintevent.html">QPaintEvent</a> is delivered by calling <a href="qwidget.html#paintEvent">QWidget::paintEvent</a>(). This virtual function is responsible for reacting appropriately, normally by repainting the widget. If you do not perform all the necessary work in your implementation of the virtual function, you may need to call the base class's implementation.</p>
@@ -261,8 +261,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -274,7 +274,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>

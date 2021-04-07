@@ -174,19 +174,19 @@
 <p>To make sure that the shadow build compiles correctly it is important that you following these guidelines:</p>
 <ul>
 <li>The original Qt source package must be left untouched - configure must never have been run in the source tree directory.</li>
-<li>The shadow build directory must be on the same level as the Qt source package.<br /> If the Qt package is in <tt>C:\Qt\4.8&#x2e;6</tt> the shadow build directory could be <tt>C:\Qt\shadowbuild</tt>. A shadow build from a directory like <tt>C:\shadowbuild</tt> will not compile.</li>
+<li>The shadow build directory must be on the same level as the Qt source package.<br /> If the Qt package is in <tt>C:\Qt\4.8&#x2e;7</tt> the shadow build directory could be <tt>C:\Qt\shadowbuild</tt>. A shadow build from a directory like <tt>C:\shadowbuild</tt> will not compile.</li>
 <li>Avoid using &quot;release&quot; and &quot;debug&quot; in the path to the shadow build directory. (This is an internal limitation of the build system.)</li>
 <li>The <tt>\bin</tt> directory of the shadow build directory must be added to the <tt>PATH</tt> environment variable.</li>
 <li>Perl has been installed on your system. (<a href="http://www.activestate.com/Products/activeperl/index.mhtml">ActivePerl</a> is a popular distribution of Perl on Windows.)</li>
 </ul>
-<p>So lets assume you have installed Qt in <tt>C:\Qt\4.8&#x2e;6</tt> and you want to create a shadow build in <tt>C:\Qt\mobile5-shadow</tt>:</p>
+<p>So lets assume you have installed Qt in <tt>C:\Qt\4.8&#x2e;7</tt> and you want to create a shadow build in <tt>C:\Qt\mobile5-shadow</tt>:</p>
 <ul>
 <li>First add <tt>C:\Qt\mobile5-shadow\bin</tt> to the <tt>PATH</tt> variable.<pre class="cpp"> set PATH=C:\Qt\mobile5-shadow\bin;%PATH%</pre>
 </li>
 <li>Make sure the enviroment variables for your compiler are set.<p>Visual Studio includes <tt>vcvars32.bat</tt> for that purpose - or simply use the &quot;Visual Studio Command Prompt&quot; from the Start menu.</p>
 </li>
 <li>Now navigate to your shadow build directory and run configure:<pre class="cpp"> cd c:\Qt\mobile5-shadow
- C:\Qt\4.8.6\configure.exe -platform win32-msvc2005 -xplatform wincewm50pocket-msvc2005 -release</pre>
+ C:\Qt\4.8.7\configure.exe -platform win32-msvc2005 -xplatform wincewm50pocket-msvc2005 -release</pre>
 </li>
 <li>To build Qt, you have to update your <tt>PATH, INCLUDE</tt> and <tt>LIB</tt> paths to point to your target platforms.<p>For a default installation of the Windows Mobile 5.0 Pocket PC SDK, you can do the following:</p>
 <pre class="cpp"> set INCLUDE=C:\Program Files\Microsoft Visual Studio 8\VC\ce\include;
@@ -213,8 +213,8 @@
   </div> 
   <div class="footer">
     <p>
-      <acronym title="Copyright">&copy;</acronym> 2014 Digia Plc and/or its
-      subsidiaries. Documentation contributions included herein are the copyrights of
+      <acronym title="Copyright">&copy;</acronym> 2015 The Qt Company Ltd.
+      Documentation contributions included herein are the copyrights of
       their respective owners.</p>
     <br />
     <p>
@@ -226,7 +226,7 @@
       www.qt-project.org</a>.</p>
     <br />
     <p>
-      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      Qt and respective logos are trademarks of The Qt Company Ltd 
       in Finland and/or other countries worldwide. All other trademarks are property
       of their respective owners. <a title="Privacy Policy"
       href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
